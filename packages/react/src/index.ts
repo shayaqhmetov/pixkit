@@ -1,2 +1,2 @@
-import './primitives/Button.js'
-import './primitives/Panel.js'
+export * from './primitives/Button';
+export * from './primitives/Panel';

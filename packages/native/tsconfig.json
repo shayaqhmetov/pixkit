@@ -1,9 +1,16 @@
 {
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "dist"
+        "outDir": "dist",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "jsx": "react-jsx",
+        "verbatimModuleSyntax": true
     },
     "include": [
         "src"
+    ],
+    "types": [
+        "node"
     ]
 }

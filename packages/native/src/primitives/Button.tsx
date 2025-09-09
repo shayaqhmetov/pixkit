@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text, StyleSheet, ViewStyle } from 'react-native';
+import { Pressable, Text, StyleSheet, type ViewStyle } from 'react-native';
 type Props = {
     title: string;
     variant?: 'default' | 'primary' | 'danger';

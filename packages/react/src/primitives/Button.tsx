@@ -1,6 +1,5 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import '@pixkit/styles/src/index.css';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     variant?: 'default' | 'primary' | 'danger';
