@@ -1,0 +1,45 @@
+:root {
+    --px: 4px;
+    --radius: 8px;
+    --border: 4px;
+    --bg: #1b1e2b;
+    --panel: #24283b;
+    --fg: #e1e3ed;
+    --muted: #a6accd;
+    --accent: #8be9fd;
+    --danger: #ff5555;
+    --success: #50fa7b;
+    --shadow: drop-shadow(0 var(--px) 0 #000);
+}
+
+* {
+    image-rendering: pixelated;
+}
+
+html,
+body {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+/* Примитивы */
+.pix-panel {
+    background: var(--panel);
+    color: var(--fg);
+}
+
+.pix-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--px);
+    padding: calc(2*var(--px)) calc(3*var(--px));
+    border: var(--border) solid #0000;
+    /* заменим на border-image позже */
+    filter: var(--shadow);
+    line-height: 1;
+}
+
+.pix-btn:focus-visible {
+    outline: var(--border) solid var(--accent);
+    outlineoffset: 0;
+}

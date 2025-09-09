@@ -1,0 +1,27 @@
+{
+  "name": "pixkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "clean": "rimraf packages/**/dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.1",
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.5",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2"
+  }
+}

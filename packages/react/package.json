@@ -1,0 +1,24 @@
+{
+    "name": "@pixkit/react",
+    "version": "0.0.1",
+    "type": "module",
+    "sideEffects": [
+        "**/*.css"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsup"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18"
+    },
+    "dependencies": {
+        "@types/react": "^19.1.12",
+        "clsx": "^2.1.0"
+    }
+}

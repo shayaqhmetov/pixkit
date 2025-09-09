@@ -1,0 +1,14 @@
+{
+    "entry": [
+        "src/index.ts"
+    ],
+    "format": [
+        "esm"
+    ],
+    "dts": true,
+    "sourcemap": true,
+    "clean": true,
+    "external": [
+        "@pixkit/styles/src/index.css"
+    ]
+}

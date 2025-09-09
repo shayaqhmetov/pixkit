@@ -1,0 +1,24 @@
+{
+    "name": "@pixkit/cli",
+    "version": "0.0.1",
+    "type": "module",
+    "bin": {
+        "pixkit": "dist/index.js"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "templates"
+    ],
+    "scripts": {
+        "build": "tsup"
+    },
+    "dependencies": {
+        "prompts": "^2.4.2"
+    },
+    "devDependencies": {
+        "@types/node": "^24.3.1",
+        "@types/prompts": "^2.4.9"
+    }
+}

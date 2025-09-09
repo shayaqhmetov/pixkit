@@ -1,0 +1,21 @@
+{
+    "name": "@pixkit/native",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src/assets"
+    ],
+    "scripts": {
+        "build": "tsup"
+    },
+    "peerDependencies": {
+        "react": ">=18",
+        "react-native": ">=0.74"
+    },
+    "dependencies": {
+        "@types/react": "^19.1.12"
+    }
+}
