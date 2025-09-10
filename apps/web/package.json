@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 5173"
+    "preview": "vite preview --port 5173",
+    "predeploy": "pnpm --filter ./apps/web build",
+    "deploy": "gh-pages -d apps/web/dist"
   },
+  "homepage": "https://shayaqhmetov.github.io/pixkit/",
   "keywords": [],
-  "author": "",
+  "author": "Ruslan Shayakhmetov <mister.shaya>",
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
   "dependencies": {
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@vitejs/plugin-react-swc": "^4.0.1",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13"
   }
