@@ -1,0 +1,15 @@
+:root {
+    --px: 4px;
+    --radius: 8px;
+    --border: 1px;
+    --bg: #1b1e2b;
+    --panel: #24283b;
+    --fg: #e1e3ed;
+    --muted: #a6accd;
+    --accent: #8be9fd;
+    --danger: #ff5555;
+    --success: #50fa7b;
+    --primary: #6272a4;
+    --shadow: drop-shadow(0 var(--px) 0 #000);
+    --white-text: #fff;
+}
