@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "Ruslan Shayakhmetov <mister.shaya>",
   "license": "ISC",
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.14.0",
   "dependencies": {
     "@pixkit/react": "workspace:*",
     "@pixkit/styles": "workspace:*",
