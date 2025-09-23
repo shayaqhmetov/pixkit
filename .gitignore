@@ -5,3 +5,6 @@ node_modules
 apps/**/dist
 packages/**/dist
 pnpm-lock.yaml
+.turbo/
+node_modules/.cache/turbo/
+**/.vite/
