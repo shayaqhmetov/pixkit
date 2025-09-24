@@ -1,0 +1,43 @@
+@import "./variables.css";
+
+/* ===== Breadcrumb (web) ===== */
+.pix-bc {
+  display: flex;
+  align-items: center;
+}
+
+.pix-bc__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: calc(2*var(--px));
+}
+
+.pix-bc__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pix-bc__link {
+  text-decoration: none;
+  color: var(--fg);
+  border: var(--border) solid transparent;
+}
+
+
+.pix-bc__link:hover {
+  outline-offset: 0;
+  color: var(--success);
+  transition: all .5s;
+}
+
+.pix-bc__separator {
+  opacity: .75;
+  user-select: none;
+  padding: 0 calc(1*var(--px));
+}
+
+.pix-bc__current {
+  color: var(--muted);
+  pointer-events: none;
+}

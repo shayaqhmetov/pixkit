@@ -12,10 +12,30 @@
   cursor: pointer;
 }
 
+.pix-btn:hover {
+  filter: brightness(1.1);
+}
+
+.pix-btn:active > .pix-btn__bg {
+  background: url('../assets/pressed-btn-center.png') repeat-x center;
+  background-size: auto 100%;
+  image-rendering: pixelated;
+}
+
+.pix-btn:active::before {
+  background-image: url('../assets/pressed-btn-left.png');
+}
+
+.pix-btn:active::after {
+  background-image: url('../assets/pressed-btn-right.png');
+}
+
 .pix-btn__bg {
   position: absolute;
-  left: 5px;  /* ширина before */
-  right: 5px; /* ширина after */
+  left: 5px;
+  /* ширина before */
+  right: 5px;
+  /* ширина after */
   top: 0;
   bottom: 0;
   background: url('../assets/btn-center.png') repeat-x center;
@@ -24,6 +44,7 @@
   z-index: 0;
   pointer-events: none;
 }
+
 
 .pix-btn__content {
   position: relative;
@@ -46,11 +67,71 @@
   pointer-events: none;
   z-index: 2;
 }
+
 .pix-btn::before {
   left: 0;
   background-image: url('../assets/btn-left.png');
 }
+
 .pix-btn::after {
   right: 0;
   background-image: url('../assets/btn-right.png');
+}
+
+/* PRIMARY */
+.pix-btn--primary .pix-btn__bg {
+  background: url('../assets/primary-btn-center.png') repeat-x center;
+  background-size: auto 100%;
+  image-rendering: pixelated;
+}
+
+.pix-btn--primary::before {
+  background-image: url('../assets/primary-btn-left.png');
+}
+
+.pix-btn--primary::after {
+  background-image: url('../assets/primary-btn-right.png');
+}
+
+.pix-btn--primary:active > .pix-btn__bg {
+  background: url('../assets/pressed-primary-btn-center.png') repeat-x center;
+  background-size: auto 100%;
+  image-rendering: pixelated;
+}
+
+.pix-btn--primary:active::before {
+  background-image: url('../assets/pressed-primary-btn-left.png');
+}
+
+.pix-btn--primary:active::after {
+  background-image: url('../assets/pressed-primary-btn-right.png');
+}
+
+/* DANGER */
+.pix-btn--danger .pix-btn__bg {
+  background: url('../assets/danger-btn-center.png') repeat-x center;
+  background-size: auto 100%;
+  image-rendering: pixelated;
+}
+
+.pix-btn--danger::before {
+  background-image: url('../assets/danger-btn-left.png');
+}
+
+.pix-btn--danger::after {
+  background-image: url('../assets/danger-btn-right.png');
+}
+
+.pix-btn--danger:active > .pix-btn__bg {
+  background: url('../assets/pressed-danger-btn-center.png') repeat-x center;
+  background-size: auto 100%;
+  image-rendering: pixelated;
+}
+
+.pix-btn--danger:active::before {
+  background-image: url('../assets/pressed-danger-btn-left.png');
+}
+
+.pix-btn--danger:active::after {
+  background-image: url('../assets/pressed-danger-btn-right.png');
 }

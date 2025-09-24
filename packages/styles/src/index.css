@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "./buttons.css";
+@import "./breadcrumb.css";
 
 * {
     image-rendering: pixelated;
@@ -10,7 +11,7 @@
   src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format("truetype");
 }
 
-p, h1, h2, h3, h4, h5, h6, button {
+p, h1, h2, h3, h4, h5, h6, button, span, a{
     font-family: PixelifySans;
 }
 
