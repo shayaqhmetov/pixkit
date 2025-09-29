@@ -1,6 +1,7 @@
 @import "./variables.css";
 @import "./buttons.css";
 @import "./breadcrumb.css";
+@import "./navigation.css";
 
 * {
     image-rendering: pixelated;
