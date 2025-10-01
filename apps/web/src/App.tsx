@@ -1,21 +1,19 @@
-import { createRoot } from 'react-dom/client';
-
-import '@pixkit/styles/index.css';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator, Button } from '@pixkit/react';
-
 import { Layout } from './components/Layout';
 
 import { Routes, Route } from 'react-router-dom';
-import ComponentsPage from './pages/components';
-// import DocsPage from './pages/docs';
+import ComponentsPage from './pages/ComponentsPage';
+import HomePage from './pages/HomePage';
+import { ComponentsLayout } from './components/ComponentsLayout';
 
 export default function App() {
   return (
-    <Layout>
-      <Routes>
-        {/* <Route index path="/" element={<DocsPage />} /> */}
-        <Route path="/components" element={<ComponentsPage />} />
-      </Routes>
-    </Layout>
+    <Routes>
+      <Route element={<Layout />} >
+        <Route index element={<HomePage />} />
+        <Route path="components" element={<ComponentsLayout />} >
+          <Route index element={<ComponentsPage />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
