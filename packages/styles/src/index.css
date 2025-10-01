@@ -2,6 +2,7 @@
 @import "./buttons.css";
 @import "./breadcrumb.css";
 @import "./navigation.css";
+@import "./sidebar.css";
 
 * {
     image-rendering: pixelated;

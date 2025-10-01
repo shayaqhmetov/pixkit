@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 import {
     NavigationMenu,
     NavigationMenuItem,
@@ -6,7 +6,6 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     NavigationMenuContent,
-    Panel,
 } from '@pixkit/react';
 
 const topNavLinks = [
@@ -14,14 +13,7 @@ const topNavLinks = [
     { href: 'components', label: 'Components' },
 ];
 
-const sidebarLinks = [
-    { href: 'getting-started', label: 'Getting Started' },
-    { href: 'theming', label: 'Theming' },
-    { href: 'accessibility', label: 'Accessibility' },
-    { href: 'roadmap', label: 'Roadmap' },
-];
-
-export const Layout = ({ children }: PropsWithChildren) => (
+export const Layout = () => (
     <div>
         <div>
             <header>
@@ -56,7 +48,7 @@ export const Layout = ({ children }: PropsWithChildren) => (
             </header>
             <div>
                 <main>
-                    {children}
+                    <Outlet />
                 </main>
             </div>
             <footer>

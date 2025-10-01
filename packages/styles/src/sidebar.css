@@ -1,0 +1,5 @@
+@import './variables.css';
+
+.pix-sidebar-provider {
+  border: 1px solid red;
+}
