@@ -1,5 +1,28 @@
 @import './variables.css';
 
 .pix-sidebar-provider {
+  position: relative;
+  border: 1px solid green;
+  display: flex;
+}
+
+.pix-sidebar-provider .pix-sidebar {
   border: 1px solid red;
+  overflow: hidden;
+  width: 0px;
+}
+
+.pix-sidebar-provider > :not(.pix-sidebar) {
+  border: 1px solid yellow;
+  flex: 1;
+}
+
+.pix-sidebar.open {
+  width: 250px; /* Adjust the width as needed */
+  transition: width 0.3s ease;
+}
+
+.pix-sidebar.closed {
+  width: 0;
+  transition: width 0.3s ease;
 }

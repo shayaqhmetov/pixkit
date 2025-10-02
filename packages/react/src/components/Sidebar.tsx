@@ -1,12 +1,47 @@
 import React from "react";
 
-export const SidebarProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-    return <div className="pix-sidebar-provider">{children}</div>;
+type SidebarContextValue = {
+    isOpen: boolean;
+    open: () => void;
+    close: () => void;
+    toggle: () => void;
 };
 
-export const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className = '', ...props }) => (
-    <aside className={`pix-sidebar ${className}`} {...props} />
-);
+const SidebarContext = React.createContext<SidebarContextValue | null>(null);
+
+export const SidebarProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const open = React.useCallback(() => setIsOpen(true), []);
+    const close = React.useCallback(() => setIsOpen(false), []);
+    const toggle = React.useCallback(() => {
+        setIsOpen((prev) => !prev);
+    }, []);
+
+    const value = React.useMemo(
+        () => ({
+            isOpen,
+            open,
+            close,
+            toggle,
+        }),
+        [isOpen, open, close, toggle]
+    );
+
+    return (
+        <SidebarContext.Provider value={value}>
+            <div className="pix-sidebar-provider">{children}</div>
+        </SidebarContext.Provider>
+    );
+};
+
+export const Sidebar: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className = '', ...props }) => {
+    const context = React.useContext(SidebarContext);
+    const stateClass = context ? (context.isOpen ? 'open' : 'closed') : '';
+    const classes = ['pix-sidebar', stateClass, className].filter(Boolean).join(' ');
+
+    return <aside className={classes} {...props} />;
+};
 
 export const SidebarHeader: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className = '', ...props }) => (
     <div className={`pix-sidebar-header ${className}`} {...props} />
@@ -43,3 +78,34 @@ export const SidebarMenuButton: React.FC<React.ButtonHTMLAttributes<HTMLButtonEl
 export const SidebarMenuItem: React.FC<React.LiHTMLAttributes<HTMLLIElement>> = ({ className = '', ...props }) => (
     <li className={`pix-sidebar-menu-item ${className}`} {...props} />
 );
+
+export const SidebarTrigger: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+    className = '',
+    onClick,
+    ['aria-pressed']: ariaPressedProp,
+    ...props
+}) => {
+    const context = React.useContext(SidebarContext);
+    const classes = ['pix-sidebar-trigger', className].filter(Boolean).join(' ');
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        onClick?.(event);
+        if (event.defaultPrevented) {
+            return;
+        }
+
+        context?.toggle();
+    };
+
+    const ariaPressed = context ? context.isOpen : ariaPressedProp;
+
+    return (
+        <button
+            type="button"
+            className={classes}
+            onClick={handleClick}
+            aria-pressed={ariaPressed ?? false}
+            {...props}
+        />
+    );
+};
