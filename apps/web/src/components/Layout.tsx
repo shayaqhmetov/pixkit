@@ -9,8 +9,8 @@ import {
 } from '@pixkit/react';
 
 const topNavLinks = [
-    { href: 'documentation', label: 'Docs' },
-    { href: 'components', label: 'Components' },
+    { href: '#documentation', label: 'Docs' },
+    { href: '#components', label: 'Components' },
 ];
 
 export const Layout = () => (
