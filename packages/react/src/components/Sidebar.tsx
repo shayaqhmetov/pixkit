@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "../primitives/Button";
+import { IconSidebarToggle } from "../primitives/icons";
 
 type SidebarContextValue = {
     isOpen: boolean;
@@ -100,12 +102,8 @@ export const SidebarTrigger: React.FC<React.ButtonHTMLAttributes<HTMLButtonEleme
     const ariaPressed = context ? context.isOpen : ariaPressedProp;
 
     return (
-        <button
-            type="button"
-            className={classes}
-            onClick={handleClick}
-            aria-pressed={ariaPressed ?? false}
-            {...props}
-        />
+        <span className="pix-sidebar-trigger-wrapper" onClick={handleClick}>
+            <IconSidebarToggle />
+        </span>
     );
 };

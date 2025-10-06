@@ -6,7 +6,7 @@ export const ComponentsLayout = () => (
     <SidebarProvider>
       <AppSidebar />
       <main>
-        <SidebarTrigger>Open Sidebar</SidebarTrigger>
+        <SidebarTrigger/>
         <Outlet />
       </main>
     </SidebarProvider>
