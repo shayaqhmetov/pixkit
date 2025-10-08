@@ -11,8 +11,14 @@ type SidebarContextValue = {
 
 const SidebarContext = React.createContext<SidebarContextValue | null>(null);
 
-export const SidebarProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+export const SidebarProvider: React.FC<React.PropsWithChildren<{ open?: boolean }>> = ({ children, open: openProp }) => {
+    const [isOpen, setIsOpen] = React.useState(!!openProp);
+
+    React.useEffect(() => {
+        if (openProp !== undefined) {
+            setIsOpen(!!openProp);
+        }
+    }, [openProp]);
 
     const open = React.useCallback(() => setIsOpen(true), []);
     const close = React.useCallback(() => setIsOpen(false), []);
@@ -66,7 +72,7 @@ export const SidebarGroupContent: React.FC<React.HTMLAttributes<HTMLElement>> = 
 );
 
 export const SidebarGroupLabel: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className = '', ...props }) => (
-    <div className={`pix-sidebar-group-label ${className}`} {...props} />
+    <h3 className={`pix-sidebar-group-label ${className}`} {...props} />
 );
 
 export const SidebarMenu: React.FC<React.HTMLAttributes<HTMLElement>> = ({ className = '', ...props }) => (

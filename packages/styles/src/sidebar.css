@@ -44,3 +44,25 @@
   background: black;
   padding: 20px;
 }
+
+.pix-sidebar-group {
+  list-style: none;
+}
+
+.pix-sidebar-group-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pix-sidebar-group-content {
+}
+
+.pix-sidebar-menu-item {
+  margin: 5px 0;
+  color: white; 
+}
+
+.pix-sidebar-menu-item a {
+  color: inherit;
+  text-decoration: none;
+}

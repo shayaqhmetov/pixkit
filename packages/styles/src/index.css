@@ -9,11 +9,20 @@
 }
 
 @font-face {
-  font-family: PixelifySans;
-  src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format("truetype");
+    font-family: PixelifySans;
+    src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format("truetype");
 }
 
-p, h1, h2, h3, h4, h5, h6, button, span, a{
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+span,
+a {
     font-family: PixelifySans;
 }
 
@@ -30,4 +39,13 @@ body {
     color: var(--fg);
     padding: 16px;
     border-radius: 6px;
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+a {
+    transition: color 0.3s ease;
+    cursor: pointer;
 }

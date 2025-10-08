@@ -29,15 +29,10 @@
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
-  transition: color 0.3s ease;
   margin: 0;
-  cursor: pointer;
   height: 100%;
 }
 
-.pix-nav__link:hover {
-  color: var(--primary);
-}
 
 .pix-nav__trigger {
   all: unset;
@@ -52,10 +47,6 @@
   gap: 4px;
   font-family: PixelifySans;
   margin: 0px 8px;
-}
-
-.pix-nav__trigger:hover, .pix-nav__link:hover {
-  color: var(--primary);
 }
 
 .pix-nav__content {

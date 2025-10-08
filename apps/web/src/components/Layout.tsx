@@ -20,7 +20,7 @@ export const Layout = () => (
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuLink href="/">PixKit</NavigationMenuLink>
+                                <NavigationMenuLink href="/pixkit">PixKit</NavigationMenuLink>
                             </NavigationMenuItem>
                             {topNavLinks.map((link) => (
                                 <NavigationMenuItem key={link.href}>
