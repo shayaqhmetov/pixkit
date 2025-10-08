@@ -9,7 +9,6 @@ import {
 } from '@pixkit/react';
 
 const topNavLinks = [
-    { href: '#documentation', label: 'Docs' },
     { href: '#components', label: 'Components' },
 ];
 
@@ -34,9 +33,9 @@ export const Layout = () => (
                                 <NavigationMenuTrigger>More</NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <NavigationMenuList>
-                                        <NavigationMenuItem key="blog">
-                                            <NavigationMenuLink href="#blog">
-                                                Blog
+                                        <NavigationMenuItem key="github page">
+                                            <NavigationMenuLink href="https://github.com/shayaqhmetov/pixkit">
+                                                GitHub
                                             </NavigationMenuLink>
                                         </NavigationMenuItem>
                                     </NavigationMenuList>
@@ -51,7 +50,7 @@ export const Layout = () => (
                     <Outlet />
                 </main>
             </div>
-            <footer>
+            <footer style={{ textAlign: 'center', padding: '2rem 0' }}>
                 <p>Need another primitive? Track it in the roadmap or open a discussion with the design system squad.</p>
                 <p>&copy; {new Date().getFullYear()} PixKit — crafted with accessibility in mind.</p>
             </footer>
