@@ -3,6 +3,7 @@
 @import "./breadcrumb.css";
 @import "./navigation.css";
 @import "./sidebar.css";
+@import "./tabs.css";
 
 * {
     image-rendering: pixelated;

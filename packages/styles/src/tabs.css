@@ -1,0 +1,12 @@
+@import "./variables.css";
+
+.pix-tabs-content {
+  padding: 20px;
+  background-color: black;
+}
+
+.pix-tabs-list {
+  display: flex;
+  border-bottom: 1px solid var(--pix-border-color);
+  margin-bottom: 10px;
+}

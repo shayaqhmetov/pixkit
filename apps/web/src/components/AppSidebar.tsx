@@ -6,36 +6,25 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
 } from "@pixkit/react"
 
 // Menu items.
 const items = [
   {
-    title: "Home",
-    url: "#",
-    icon: "Home",
+    title: "Accordion",
+    url: "#components?component=accordion",
+    icon: "AccordionIcon",
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: "Inbox",
+    title: "Alert",
+    url: "#components?component=alert",
+    icon: "AlertIcon",
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: "Calendar",
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: "Search",
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: "Settings",
+    title: "Tabs",
+    url: "#components?component=tabs",
+    icon: "TabsIcon",
   },
 ]
 
@@ -44,7 +33,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

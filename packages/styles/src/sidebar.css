@@ -43,6 +43,7 @@
 .pix-sidebar-content {
   background: black;
   padding: 20px;
+  height: 100%;
 }
 
 .pix-sidebar-group {
