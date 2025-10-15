@@ -8,5 +8,14 @@
 .pix-tabs-list {
   display: flex;
   border-bottom: 1px solid var(--pix-border-color);
-  margin-bottom: 10px;
+}
+
+.pix-tabs-trigger {
+  padding:  10px;
+  cursor: pointer;
+}
+
+.pix-tabs-trigger.active {
+  color: var(--white-text);
+  background-color: var(--black);
 }

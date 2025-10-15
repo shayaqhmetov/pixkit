@@ -29,7 +29,7 @@ export const TabsTrigger: React.FC<React.HTMLAttributes<HTMLElement> & { value: 
     const handleClick = () => {
         context?.onValueChange(value);
     };
-    return (<button className={`pix-tabs-trigger ${isActive ? 'active' : ''} ${className}`} onClick={handleClick} {...props} />);
+    return (<span className={`pix-tabs-trigger ${isActive ? 'active' : ''} ${className}`} onClick={handleClick} {...props} />);
 };
 
 export const Tabs: React.FC<React.HTMLAttributes<HTMLElement> & { defaultValue: string; }> = ({
@@ -37,14 +37,16 @@ export const Tabs: React.FC<React.HTMLAttributes<HTMLElement> & { defaultValue: 
     defaultValue,
     ...props
 }) => {
-     const contents = React.Children.toArray(props.children).filter(child => {
+    const [currentValue, setCurrentValue] = React.useState(defaultValue);
+    
+    const contents = React.Children.toArray(props.children).filter(child => {
         return React.isValidElement(child) && child.type === TabsContent;
-    }) as React.ReactElement<{ value: string }>[]; 
-    let defaultTargetContent = contents.find(content => content.props.value === defaultValue);
-    const [targetContent, setTargetContent] = React.useState(defaultTargetContent);
+    }) as React.ReactElement<{ value: string }>[];
+    
+    const targetContent = contents.find(content => content.props.value === currentValue);
 
     React.useEffect(() => {
-        setTargetContent(defaultTargetContent);
+        setCurrentValue(defaultValue);
     }, [defaultValue]);
 
     // Find the TabsList and TabsContent children.
@@ -53,11 +55,11 @@ export const Tabs: React.FC<React.HTMLAttributes<HTMLElement> & { defaultValue: 
     }) as React.ReactElement;
 
     const onValueChange = (value: string) => {
-        setTargetContent(contents.find(content => content.props.value === value));
+        setCurrentValue(value);
     };
 
     return (
-        <TabsProvider value={defaultValue} onValueChange={onValueChange}>
+        <TabsProvider value={currentValue} onValueChange={onValueChange}>
             <div className={`pix-tabs ${className}`} {...props}>
                 {tabList}
                 {targetContent}

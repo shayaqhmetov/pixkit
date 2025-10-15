@@ -12,4 +12,5 @@
     --primary: #6272a4;
     --shadow: drop-shadow(0 var(--px) 0 #000);
     --white-text: #fff;
+    --black: #000;
 }
