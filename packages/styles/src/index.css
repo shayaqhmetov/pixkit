@@ -4,6 +4,8 @@
 @import "./navigation.css";
 @import "./sidebar.css";
 @import "./tabs.css";
+@import "./accordion.css";
+@import "./code-view.css";
 
 * {
     image-rendering: pixelated;
@@ -23,6 +25,7 @@ h5,
 h6,
 button,
 span,
+pre,
 a {
     font-family: PixelifySans;
 }

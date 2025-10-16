@@ -3,14 +3,14 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { SidebarProvider } from '@pixkit/react';
 
 import { AppSidebar } from './AppSidebar';
-import { Accordion, Alert, Tabs } from "./components";
+import { AccordionComponent, Alert, Tabs } from "./components";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
 const componentsMap: Record<string, React.ComponentType> = {
-  accordion: Accordion,
+  accordion: AccordionComponent,
   alert: Alert,
   tabs: Tabs,
 };
