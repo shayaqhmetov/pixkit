@@ -6,6 +6,7 @@
 @import "./tabs.css";
 @import "./accordion.css";
 @import "./code-view.css";
+@import "./card.css";
 
 * {
     image-rendering: pixelated;

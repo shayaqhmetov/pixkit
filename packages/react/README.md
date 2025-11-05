@@ -73,12 +73,15 @@ See [TOKENS_USAGE.md](../../TOKENS_USAGE.md) for detailed examples.
 
 - **Button** - Pixel-art styled buttons with multiple variants
 - **Panel** - Container component with retro styling
+- **Card** - Flexible card with composable subcomponents (Header, Title, Description, Content, Footer)
 - **Accordion** - Expandable/collapsible sections
 - **Tabs** - Tab navigation component
 - **Breadcrumb** - Navigation breadcrumb
 - **Navigation** - Navigation menu
 - **Sidebar** - Side navigation panel
 - **CodeView** - Code display component
+
+See [CARD.md](./CARD.md) for detailed Card component usage.
 
 ## Peer Dependencies
 

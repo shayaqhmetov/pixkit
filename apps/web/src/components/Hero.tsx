@@ -4,6 +4,7 @@ import {
   Button,
 } from "@pixkit/react";
 import baqa from "../assets/images/baqa.png";
+
 export default function Hero() {
   return (
     <div className="hero">

@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/styles",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "CSS styles for PixKit component library",
     "type": "module",
     "files": [
@@ -19,6 +19,7 @@
         "./accordion.css": "./src/accordion.css",
         "./breadcrumb.css": "./src/breadcrumb.css",
         "./buttons.css": "./src/buttons.css",
+        "./card.css": "./src/card.css",
         "./code-view.css": "./src/code-view.css",
         "./navigation.css": "./src/navigation.css",
         "./sidebar.css": "./src/sidebar.css",

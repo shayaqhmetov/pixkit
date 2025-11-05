@@ -1,0 +1,82 @@
+/* Card Component */
+.pix-card {
+  background: var(--panel);
+  border: var(--border) solid var(--fg);
+  border-radius: var(--radius);
+  padding: calc(var(--px) * 6);
+  color: var(--fg);
+  image-rendering: pixelated;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.pix-card:hover {
+  transform: translateY(-2px);
+  box-shadow: drop-shadow(0 calc(var(--px) * 2) 0 #000);
+}
+
+/* Card Header */
+.pix-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--px) * 2);
+  margin-bottom: calc(var(--px) * 4);
+}
+
+/* Card Title */
+.pix-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Card Description */
+.pix-card__description {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Card Content */
+.pix-card__content {
+  padding-top: calc(var(--px) * 2);
+  padding-bottom: calc(var(--px) * 2);
+}
+
+/* Card Footer */
+.pix-card__footer {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--px) * 2);
+  margin-top: calc(var(--px) * 4);
+  padding-top: calc(var(--px) * 4);
+  border-top: var(--border) solid var(--muted);
+}
+
+/* Variants */
+.pix-card--interactive {
+  cursor: pointer;
+}
+
+.pix-card--interactive:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* Compact variant */
+.pix-card--compact {
+  padding: calc(var(--px) * 4);
+}
+
+.pix-card--compact .pix-card__header {
+  margin-bottom: calc(var(--px) * 2);
+}
+
+.pix-card--compact .pix-card__footer {
+  margin-top: calc(var(--px) * 2);
+  padding-top: calc(var(--px) * 2);
+}

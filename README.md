@@ -99,6 +99,7 @@ const borderRadius = tokens.radius; // 8
 
 - **Button** - Pixel-art styled buttons with multiple variants
 - **Panel** - Container component with retro styling
+- **Card** - Flexible card component with Header, Title, Description, Content, and Footer subcomponents (shadcn-inspired)
 - **Accordion** - Expandable/collapsible sections
 - **Tabs** - Tab navigation component
 - **Breadcrumb** - Navigation breadcrumb

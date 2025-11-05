@@ -26,6 +26,11 @@ const items = [
     url: "#components?component=tabs",
     icon: "TabsIcon",
   },
+  {
+    title: "Card",
+    url: "#components?component=card",
+    icon: "CardIcon",
+  }
 ]
 
 export function AppSidebar() {

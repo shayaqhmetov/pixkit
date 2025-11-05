@@ -1,5 +1,11 @@
 # @pixkit/react
 
+## 0.4.0
+
+### Minor Changes
+
+- Added Card compoenent
+
 ## 0.3.0
 
 ### Minor Changes

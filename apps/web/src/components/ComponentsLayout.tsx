@@ -1,9 +1,9 @@
 import "../styles/components.css";
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { SidebarProvider } from '@pixkit/react';
 
 import { AppSidebar } from './AppSidebar';
-import { AccordionComponent, Alert, Tabs } from "./components";
+import { AccordionComponent, Alert, Tabs, CardComponent } from "./components";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -13,6 +13,7 @@ const componentsMap: Record<string, React.ComponentType> = {
   accordion: AccordionComponent,
   alert: Alert,
   tabs: Tabs,
+  card: CardComponent,
 };
 
 export const ComponentsLayout = () => {
