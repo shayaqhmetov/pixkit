@@ -2,6 +2,10 @@
 
 A pixel-art themed UI component library for React and React Native, built with TypeScript and modern design tokens.
 
+## 🌐 Live Demo
+
+Check out the components in action: **[https://shayaqhmetov.github.io/pixkit/](https://shayaqhmetov.github.io/pixkit/)**
+
 ## 📦 Packages
 
 PixKit is a monorepo containing multiple packages:
@@ -126,6 +130,9 @@ pnpm typecheck
 
 # Lint
 pnpm lint
+
+# Deploy demo to GitHub Pages
+pnpm deploy:web
 ```
 
 ## 📝 License
@@ -135,6 +142,8 @@ MIT © Ruslan Shayakhmetov
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines and [DEPLOYMENT.md](./DEPLOYMENT.md) for deploying the demo.
 
 ## 📮 Repository
 

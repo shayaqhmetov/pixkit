@@ -11,7 +11,8 @@
     "clean": "rimraf packages/**/dist",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && changeset publish",
+    "deploy:web": "pnpm --filter web build && cd apps/web && pnpm run deploy"
   },
   "keywords": [
     "react",
