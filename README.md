@@ -31,13 +31,18 @@ npm install @pixkit/tokens
 ### React Components
 
 ```tsx
-import { Button, Panel, Accordion, Tabs } from '@pixkit/react';
+import { Button, Panel, Accordion, Tabs, usePixTokens } from '@pixkit/react';
 import '@pixkit/styles/index.css';
 
 function App() {
+  const tokens = usePixTokens();
+  
   return (
     <Panel>
       <Button variant="primary">Click me!</Button>
+      <div style={{ padding: tokens.px * 4, color: tokens.colors.accent }}>
+        Using design tokens!
+      </div>
       <Accordion>
         <Accordion.Item value="item-1">
           <Accordion.Trigger>Section 1</Accordion.Trigger>
@@ -52,9 +57,22 @@ function App() {
 ### Design Tokens
 
 ```typescript
-import { tokens } from '@pixkit/tokens';
+import { tokens, usePixTokens, pixStyle } from '@pixkit/react';
 
-// Access design tokens
+// Hook usage
+const MyComponent = () => {
+  const tokens = usePixTokens();
+  return <div style={{ color: tokens.colors.accent }}>Accent text</div>;
+};
+
+// Helper function
+const StyledDiv = () => (
+  <div style={pixStyle({ p: 4, bg: 'panel', radius: true })}>
+    Quick styling!
+  </div>
+);
+
+// Direct import
 const primaryColor = tokens.colors.accent; // '#8be9fd'
 const spacing = tokens.px; // 4
 const borderRadius = tokens.radius; // 8

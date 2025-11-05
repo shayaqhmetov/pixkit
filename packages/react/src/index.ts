@@ -6,3 +6,8 @@ export * from './components/Sidebar';
 export * from './components/Tabs';
 export * from './components/Accordion';
 export * from './components/CodeView';
+export * from './hooks/usePixTokens';
+
+// Re-export tokens for convenience
+export { tokens } from '@pixkit/tokens';
+export type { PixTokens } from '@pixkit/tokens';

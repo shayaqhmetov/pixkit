@@ -1,5 +1,11 @@
 # @pixkit/styles
 
+## 0.3.0
+
+### Minor Changes
+
+- Ussage of tokens in react
+
 ## 0.2.0
 
 ### Minor Changes

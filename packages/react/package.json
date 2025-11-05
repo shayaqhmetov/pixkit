@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/react",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Pixel-art themed React UI components",
     "type": "module",
     "sideEffects": [
@@ -28,6 +28,7 @@
         "react-dom": ">=18"
     },
     "dependencies": {
+        "@pixkit/tokens": "workspace:*",
         "@types/react": "^19.1.12",
         "clsx": "^2.1.0"
     },

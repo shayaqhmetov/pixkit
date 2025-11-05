@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/styles",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "CSS styles for PixKit component library",
     "type": "module",
     "files": [
@@ -11,6 +11,9 @@
     "sideEffects": [
         "**/*.css"
     ],
+    "scripts": {
+        "build": "tsx scripts/generate-variables.ts"
+    },
     "exports": {
         "./index.css": "./src/index.css",
         "./accordion.css": "./src/accordion.css",
@@ -22,6 +25,12 @@
         "./tabs.css": "./src/tabs.css",
         "./variables.css": "./src/variables.css",
         "./package.json": "./package.json"
+    },
+    "dependencies": {
+        "@pixkit/tokens": "workspace:*"
+    },
+    "devDependencies": {
+        "tsx": "^4.20.5"
     },
     "keywords": [
         "css",
