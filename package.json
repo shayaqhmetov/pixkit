@@ -1,6 +1,6 @@
 {
   "name": "pixkit",
-  "version": "0.0.2",
+  "version": "0.4.0",
   "description": "A pixel-art themed UI component library for React and React Native",
   "private": true,
   "scripts": {
