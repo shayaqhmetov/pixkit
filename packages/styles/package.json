@@ -1,12 +1,47 @@
 {
     "name": "@pixkit/styles",
-    "version": "0.0.1",
+    "version": "0.2.0",
+    "description": "CSS styles for PixKit component library",
     "type": "module",
     "files": [
-        "src"
+        "src",
+        "assets",
+        "README.md"
     ],
     "sideEffects": [
         "**/*.css"
     ],
-    "exports": { "./index.css": "./src/index.css" }
+    "exports": {
+        "./index.css": "./src/index.css",
+        "./accordion.css": "./src/accordion.css",
+        "./breadcrumb.css": "./src/breadcrumb.css",
+        "./buttons.css": "./src/buttons.css",
+        "./code-view.css": "./src/code-view.css",
+        "./navigation.css": "./src/navigation.css",
+        "./sidebar.css": "./src/sidebar.css",
+        "./tabs.css": "./src/tabs.css",
+        "./variables.css": "./src/variables.css",
+        "./package.json": "./package.json"
+    },
+    "keywords": [
+        "css",
+        "styles",
+        "pixel-art",
+        "retro",
+        "design-system"
+    ],
+    "author": "Ruslan Shayakhmetov",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shayaqhmetov/pixkit.git",
+        "directory": "packages/styles"
+    },
+    "bugs": {
+        "url": "https://github.com/shayaqhmetov/pixkit/issues"
+    },
+    "homepage": "https://github.com/shayaqhmetov/pixkit#readme",
+    "publishConfig": {
+        "access": "public"
+    }
 }

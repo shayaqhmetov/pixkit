@@ -1,13 +1,44 @@
 {
     "name": "@pixkit/tokens",
-    "version": "0.0.1",
+    "version": "0.2.0",
+    "description": "Design tokens for PixKit component library",
     "type": "module",
     "main": "dist/index.js",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
-        "dist"
+        "dist",
+        "README.md"
     ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./package.json": "./package.json"
+    },
     "scripts": {
         "build": "tsup"
+    },
+    "keywords": [
+        "design-tokens",
+        "tokens",
+        "theme",
+        "pixel-art",
+        "design-system"
+    ],
+    "author": "Ruslan Shayakhmetov",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shayaqhmetov/pixkit.git",
+        "directory": "packages/tokens"
+    },
+    "bugs": {
+        "url": "https://github.com/shayaqhmetov/pixkit/issues"
+    },
+    "homepage": "https://github.com/shayaqhmetov/pixkit#readme",
+    "publishConfig": {
+        "access": "public"
     }
 }

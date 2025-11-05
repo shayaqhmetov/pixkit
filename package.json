@@ -1,20 +1,39 @@
 {
   "name": "pixkit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.2",
+  "description": "A pixel-art themed UI component library for React and React Native",
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
-    "clean": "rimraf packages/**/dist"
+    "clean": "rimraf packages/**/dist",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "react-native",
+    "ui-components",
+    "pixel-art",
+    "design-system",
+    "component-library"
+  ],
+  "author": "Ruslan Shayakhmetov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shayaqhmetov/pixkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shayaqhmetov/pixkit/issues"
+  },
+  "homepage": "https://github.com/shayaqhmetov/pixkit#readme",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@types/node": "^24.3.1",
     "eslint": "^9.35.0",
     "prettier": "^3.6.2",

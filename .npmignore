@@ -1,0 +1,40 @@
+# Development files
+node_modules/
+.turbo/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build
+.DS_Store
+*.tsbuildinfo
+
+# Source files (we want to publish dist only)
+src/
+tsconfig.json
+tsup.config.ts
+tsup.config.json
+
+# Examples and demos
+apps/
+examples/
+
+# Development config
+turbo.json
+pnpm-workspace.yaml
+.eslintrc*
+.prettierrc*
+result.txt

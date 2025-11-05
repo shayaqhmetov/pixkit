@@ -1,13 +1,23 @@
 {
     "name": "@pixkit/native",
-    "version": "0.0.1",
+    "version": "0.2.0",
+    "description": "Pixel-art themed React Native UI components",
     "type": "module",
     "main": "dist/index.js",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist",
-        "src/assets"
+        "src/assets",
+        "README.md"
     ],
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./package.json": "./package.json"
+    },
     "scripts": {
         "build": "tsup"
     },
@@ -17,5 +27,27 @@
     },
     "dependencies": {
         "@types/react": "^19.1.12"
+    },
+    "keywords": [
+        "react-native",
+        "components",
+        "ui",
+        "pixel-art",
+        "retro",
+        "design-system"
+    ],
+    "author": "Ruslan Shayakhmetov",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shayaqhmetov/pixkit.git",
+        "directory": "packages/native"
+    },
+    "bugs": {
+        "url": "https://github.com/shayaqhmetov/pixkit/issues"
+    },
+    "homepage": "https://github.com/shayaqhmetov/pixkit#readme",
+    "publishConfig": {
+        "access": "public"
     }
 }
