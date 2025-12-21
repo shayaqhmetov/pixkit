@@ -1,0 +1,17 @@
+@import "./variables.css";
+
+.pix-separator {
+  background: var(--accent);
+  filter: brightness(1.1);
+}
+
+.pix-separator--horizontal {
+  height: var(--border);
+  width: 100%;
+}
+
+.pix-separator--vertical {
+  width: var(--border);
+  height: 100%;
+  align-self: stretch;
+}

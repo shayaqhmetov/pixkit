@@ -7,6 +7,14 @@
 @import "./accordion.css";
 @import "./code-view.css";
 @import "./card.css";
+@import "./badge.css";
+@import "./input.css";
+@import "./textarea.css";
+@import "./checkbox.css";
+@import "./switch.css";
+@import "./separator.css";
+@import "./avatar.css";
+@import "./dialog.css";
 
 * {
     image-rendering: pixelated;
@@ -36,6 +44,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     margin: 0;
+    font-family: PixelifySans, sans-serif;
 }
 
 /* Примитивы */
@@ -53,4 +62,13 @@ a:hover {
 a {
     transition: color 0.3s ease;
     cursor: pointer;
+}
+
+/* Form controls inherit pixel font */
+input,
+textarea,
+select,
+button,
+label {
+    font-family: PixelifySans, sans-serif;
 }
