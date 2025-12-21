@@ -31,6 +31,32 @@ const items = [
     url: "#components?component=card",
     icon: "CardIcon",
   }
+  ,
+  {
+    title: "Badge",
+    url: "#components?component=badge",
+    icon: "BadgeIcon",
+  },
+  {
+    title: "Forms",
+    url: "#components?component=forms",
+    icon: "FormsIcon",
+  },
+  {
+    title: "Dialog",
+    url: "#components?component=dialog",
+    icon: "DialogIcon",
+  },
+  {
+    title: "Avatar",
+    url: "#components?component=avatar",
+    icon: "AvatarIcon",
+  },
+  {
+    title: "Separator",
+    url: "#components?component=separator",
+    icon: "SeparatorIcon",
+  }
 ]
 
 export function AppSidebar() {

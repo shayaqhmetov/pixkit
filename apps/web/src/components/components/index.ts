@@ -2,3 +2,8 @@ export * from './Accordion';
 export * from './Alert';
 export * from './Tabs';
 export * from './Card';
+export * from './Badge';
+export * from './Forms';
+export * from './Dialog';
+export * from './Avatar';
+export * from './Separator';

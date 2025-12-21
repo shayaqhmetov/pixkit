@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { SidebarProvider } from '@pixkit/react';
 
 import { AppSidebar } from './AppSidebar';
-import { AccordionComponent, Alert, Tabs, CardComponent } from "./components";
+import { AccordionComponent, Alert, Tabs, CardComponent, BadgeComponent, FormsComponent, DialogComponent, AvatarComponent, SeparatorComponent } from "./components";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -14,6 +14,11 @@ const componentsMap: Record<string, React.ComponentType> = {
   alert: Alert,
   tabs: Tabs,
   card: CardComponent,
+  badge: BadgeComponent,
+  forms: FormsComponent,
+  dialog: DialogComponent,
+  avatar: AvatarComponent,
+  separator: SeparatorComponent,
 };
 
 export const ComponentsLayout = () => {
