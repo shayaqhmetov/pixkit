@@ -4,8 +4,8 @@ This guide shows how to use design tokens in your PixKit components and applicat
 
 ## What Changed
 
-✅ **@pixkit/tokens** is now integrated into both `@pixkit/react` and `@pixkit/styles`
-✅ **CSS variables** in `@pixkit/styles` are auto-generated from tokens
+✅ **@pixkit/tokens** is now integrated into `@pixkit/react`
+✅ **CSS variables** in `@pixkit/react` styles are auto-generated from tokens
 ✅ **React hooks** available for programmatic access to tokens
 
 ## In React Components
@@ -67,7 +67,7 @@ const MyStyledComponent = () => (
 
 ## In CSS (using CSS Variables)
 
-The `@pixkit/styles` package automatically generates CSS variables from tokens:
+The `@pixkit/react` styles automatically generate CSS variables from tokens:
 
 ```css
 .my-component {
@@ -131,9 +131,9 @@ pnpm build
 ```
 
 3. The changes will automatically propagate to:
-   - CSS variables in `@pixkit/styles`
-   - React components using tokens
-   - TypeScript types
+  - CSS variables in `@pixkit/react` styles
+  - React components using tokens
+  - TypeScript types
 
 ## Benefits
 

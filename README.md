@@ -10,9 +10,8 @@ Check out the components in action: **[https://shayaqhmetov.github.io/pixkit/](h
 
 PixKit is a monorepo containing multiple packages:
 
-- **[@pixkit/react](./packages/react)** - React components with pixel-art styling
+- **[@pixkit/react](./packages/react)** - React components with pixel-art styling (includes web CSS)
 - **[@pixkit/native](./packages/native)** - React Native components
-- **[@pixkit/styles](./packages/styles)** - CSS styles and design system
 - **[@pixkit/tokens](./packages/tokens)** - Design tokens (colors, spacing, etc.)
 
 ## 🚀 Installation
@@ -21,7 +20,7 @@ Install the packages you need:
 
 ```bash
 # For React web applications
-npm install @pixkit/react @pixkit/styles
+npm install @pixkit/react
 
 # For React Native applications
 npm install @pixkit/native
@@ -36,7 +35,7 @@ npm install @pixkit/tokens
 
 ```tsx
 import { Button, Panel, Accordion, Tabs, usePixTokens } from '@pixkit/react';
-import '@pixkit/styles/index.css';
+import '@pixkit/react/index.css';
 
 function App() {
   const tokens = usePixTokens();
@@ -86,11 +85,11 @@ const borderRadius = tokens.radius; // 8
 
 ```css
 /* Import all styles */
-@import '@pixkit/styles/index.css';
+@import '@pixkit/react/index.css';
 
 /* Or import specific component styles */
-@import '@pixkit/styles/buttons.css';
-@import '@pixkit/styles/accordion.css';
+@import '@pixkit/react/buttons.css';
+@import '@pixkit/react/accordion.css';
 ```
 
 ## 🎨 Components

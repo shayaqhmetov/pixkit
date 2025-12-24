@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
 

@@ -6,5 +6,7 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  splitting: false
+  splitting: false,
+  // Ensure static assets are available next to compiled JS
+  onSuccess: 'cp -R src/assets dist/assets'
 });

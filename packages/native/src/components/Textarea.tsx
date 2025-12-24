@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import type { TextInputProps } from 'react-native';
 

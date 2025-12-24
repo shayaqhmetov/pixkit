@@ -216,8 +216,8 @@ Footer section for actions or additional info.
 
 ```tsx
 // Import all styles
-import '@pixkit/styles/index.css';
+import '@pixkit/react/index.css';
 
 // Or import just card styles
-import '@pixkit/styles/card.css';
+import '@pixkit/react/card.css';
 ```

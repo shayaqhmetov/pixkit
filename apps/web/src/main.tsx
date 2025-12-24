@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
-import '@pixkit/styles/index.css';
+import '@pixkit/react/index.css';
 import App from './App';
 
 

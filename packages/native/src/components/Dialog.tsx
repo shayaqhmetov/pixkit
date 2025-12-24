@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Modal, View, Text, StyleSheet, Pressable } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
 

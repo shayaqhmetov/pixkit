@@ -1,0 +1,10 @@
+.pix-code-view {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text);
+}

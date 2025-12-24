@@ -26,9 +26,6 @@ All packages now have proper npm metadata:
 - Same comprehensive metadata
 - Proper peer dependencies configuration
 
-#### @pixkit/styles
-- Multiple CSS export paths
-- Assets included in published package
 
 #### @pixkit/tokens
 - Design tokens properly exported
@@ -127,7 +124,6 @@ After publishing, your packages will be available at:
 
 - npm: `https://www.npmjs.com/package/@pixkit/react`
 - npm: `https://www.npmjs.com/package/@pixkit/native`
-- npm: `https://www.npmjs.com/package/@pixkit/styles`
 - npm: `https://www.npmjs.com/package/@pixkit/tokens`
 
 ## Installation for Users
@@ -136,7 +132,7 @@ Once published, users can install your packages:
 
 ```bash
 # For React web
-npm install @pixkit/react @pixkit/styles
+npm install @pixkit/react
 
 # For React Native
 npm install @pixkit/native

@@ -1,0 +1,30 @@
+.pix-accordion {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pix-accordion-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.pix-accordion-item:last-child {
+    border-bottom: none;
+}
+
+.pix-accordion-trigger {
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: var(--primary);
+}
+
+.pix-accordion-content {
+    background: var(--panel);
+    height: 0px;
+    overflow: hidden;
+}
+
+.pix-accordion-content.active {
+    height: auto;
+    padding: 12px 16px;
+}

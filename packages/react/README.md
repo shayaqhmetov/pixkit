@@ -5,18 +5,18 @@ Pixel-art themed React UI components for building retro-style applications.
 ## Installation
 
 ```bash
-npm install @pixkit/react @pixkit/styles
+npm install @pixkit/react
 # or
-yarn add @pixkit/react @pixkit/styles
+yarn add @pixkit/react
 # or
-pnpm add @pixkit/react @pixkit/styles
+pnpm add @pixkit/react
 ```
 
 ## Usage
 
 ```tsx
 import { Button, Panel, Accordion, Tabs, usePixTokens, pixStyle } from '@pixkit/react';
-import '@pixkit/styles/index.css';
+import '@pixkit/react/index.css';
 
 function App() {
   const tokens = usePixTokens();

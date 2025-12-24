@@ -11,6 +11,8 @@
     "types": "dist/index.d.ts",
     "files": [
         "dist",
+        "styles",
+        "assets",
         "README.md"
     ],
     "exports": {
@@ -18,6 +20,24 @@
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
+        "./index.css": "./styles/index.css",
+        "./variables.css": "./styles/variables.css",
+        "./buttons.css": "./styles/buttons.css",
+        "./accordion.css": "./styles/accordion.css",
+        "./avatar.css": "./styles/avatar.css",
+        "./badge.css": "./styles/badge.css",
+        "./breadcrumb.css": "./styles/breadcrumb.css",
+        "./card.css": "./styles/card.css",
+        "./checkbox.css": "./styles/checkbox.css",
+        "./code-view.css": "./styles/code-view.css",
+        "./dialog.css": "./styles/dialog.css",
+        "./input.css": "./styles/input.css",
+        "./navigation.css": "./styles/navigation.css",
+        "./separator.css": "./styles/separator.css",
+        "./sidebar.css": "./styles/sidebar.css",
+        "./switch.css": "./styles/switch.css",
+        "./tabs.css": "./styles/tabs.css",
+        "./textarea.css": "./styles/textarea.css",
         "./package.json": "./package.json"
     },
     "scripts": {
