@@ -9,6 +9,7 @@
     "files": [
         "dist",
         "src/assets",
+        "assets",
         "README.md"
     ],
     "exports": {
@@ -19,7 +20,7 @@
         "./package.json": "./package.json"
     },
     "scripts": {
-        "build": "tsc -p tsconfig.json && cp -R assets dist/assets"
+        "build": "tsc -p tsconfig.json && cp -R assets dist"
     },
     "peerDependencies": {
         "react": ">=18",

@@ -8,5 +8,5 @@ export default defineConfig({
   clean: true,
   splitting: false,
   // Ensure static assets are available next to compiled JS
-  onSuccess: 'cp -R src/assets dist/assets'
+  onSuccess: 'cp -R assets dist/assets'
 });
