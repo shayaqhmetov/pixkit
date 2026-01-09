@@ -10,6 +10,7 @@
         "dist",
         "src/assets",
         "assets",
+        "react-native.config.js",
         "README.md"
     ],
     "exports": {
@@ -27,7 +28,8 @@
         "react-native": ">=0.74",
         "@pixkit/tokens": "workspace:*"
     },
-    "dependencies": {
+    "dependencies": {},
+    "devDependencies": {
         "@types/react": "^19.1.12"
     },
     "keywords": [

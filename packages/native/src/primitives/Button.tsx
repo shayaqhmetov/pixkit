@@ -3,48 +3,75 @@ import { Text, StyleSheet, type ViewStyle, TouchableOpacity, View, Image } from 
 import { tokens } from '@pixkit/tokens';
 
 // Import assets at the top so Metro can resolve them
-const btnCenter = require('../assets/btn-center.png');
-const btnBottom = require('../assets/btn-bottom.png');
-const btnTop = require('../assets/btn-top.png');
 
-const btnLeftTop = require('../assets/btn-left-top.png');
-const btnLeftCenter = require('../assets/btn-left-center.png');
-const btnLeftBottom = require('../assets/btn-left-bottom.png');
-
-const btnRightTop = require('../assets/btn-right-top.png');
-const btnRightCenter = require('../assets/btn-right-center.png');
-const btnRightBottom = require('../assets/btn-right-bottom.png');
-
-type Variant = 'default';
-
-const assets: Record<
-    Variant,
-    {
+export type ButtonImageMap = {
+    center: any;
+    left: {
+        top: any;
         center: any;
         bottom: any;
+    },
+    right: {
         top: any;
-        leftTop: any;
-        leftCenter: any;
-        leftBottom: any;
-        rightTop: any;
-        rightCenter: any;
-        rightBottom: any;
-        centerColor: string;
-    }
-> = {
+        center: any;
+        bottom: any;
+    },
+    top: any;
+    bottom: any;
+    centerColor: string;
+}
+type Variant = 'default' | 'primary' | 'danger';
+
+const BUTTON_IMAGES: Record<Variant, ButtonImageMap> = {
     default: {
-        center: btnCenter,
-        bottom: btnBottom,
-        top: btnTop,
-        leftTop: btnLeftTop,
-        leftCenter: btnLeftCenter,
-        leftBottom: btnLeftBottom,
-        rightTop: btnRightTop,
-        rightCenter: btnRightCenter,
-        rightBottom: btnRightBottom,
+        center: require('../assets/buttons/btn-center.png'),
+        left: {
+            top: require('../assets/buttons/btn-left-top.png'),
+            center: require('../assets/buttons/btn-left-center.png'),
+            bottom: require('../assets/buttons/btn-left-bottom.png')
+        },
+        right: {
+            top: require('../assets/buttons/btn-right-top.png'),
+            center: require('../assets/buttons/btn-right-center.png'),
+            bottom: require('../assets/buttons/btn-right-bottom.png')
+        },
+        top: require('../assets/buttons/btn-top.png'),
+        bottom: require('../assets/buttons/btn-bottom.png'),
         centerColor: tokens.colors.success,
     },
-};
+    primary: {
+        center: require('../assets/buttons/btn-primary-center.png'),
+        left: {
+            top: require('../assets/buttons/btn-primary-left-top.png'),
+            center: require('../assets/buttons/btn-primary-left-center.png'),
+            bottom: require('../assets/buttons/btn-primary-left-bottom.png')
+        },
+        right: {
+            top: require('../assets/buttons/btn-primary-right-top.png'),
+            center: require('../assets/buttons/btn-primary-right-center.png'),
+            bottom: require('../assets/buttons/btn-primary-right-bottom.png')
+        },
+        top: require('../assets/buttons/btn-primary-top.png'),
+        bottom: require('../assets/buttons/btn-primary-bottom.png'),
+        centerColor: tokens.colors.primary,
+    },
+    danger: {
+        center: require('../assets/buttons/btn-danger-center.png'),
+        left: {
+            top: require('../assets/buttons/btn-danger-left-top.png'),
+            center: require('../assets/buttons/btn-danger-left-center.png'),
+            bottom: require('../assets/buttons/btn-danger-left-bottom.png')
+        },
+        right: {
+            top: require('../assets/buttons/btn-danger-right-top.png'),
+            center: require('../assets/buttons/btn-danger-right-center.png'),
+            bottom: require('../assets/buttons/btn-danger-right-bottom.png')
+        },
+        top: require('../assets/buttons/btn-danger-top.png'),
+        bottom: require('../assets/buttons/btn-danger-bottom.png'),
+        centerColor: tokens.colors.danger,
+    }
+}
 
 
 type Props = {
@@ -56,7 +83,7 @@ type Props = {
     height?: number;
     fullWidth?: boolean;
 };
-export const Button: React.FC<Props> = ({
+export function Button({
     title,
     variant = 'default',
     style,
@@ -64,12 +91,12 @@ export const Button: React.FC<Props> = ({
     width,
     height,
     fullWidth,
-}) => {
+}: Props): React.ReactNode {
     const v: Variant = variant ?? 'default';
     // Determine tile sizes from assets
-    const topSource = Image.resolveAssetSource(assets[v].top);
-    const bottomSource = Image.resolveAssetSource(assets[v].bottom);
-    const leftCenterSource = Image.resolveAssetSource(assets[v].leftCenter);
+    const topSource = Image.resolveAssetSource(BUTTON_IMAGES[v].top);
+    const bottomSource = Image.resolveAssetSource(BUTTON_IMAGES[v].bottom);
+    const leftCenterSource = Image.resolveAssetSource(BUTTON_IMAGES[v].left.center);
 
     const topHeight = topSource?.height ?? 0;
     const bottomHeight = bottomSource?.height ?? 0;
@@ -93,9 +120,9 @@ export const Button: React.FC<Props> = ({
                 <View style={[styles.base, styles[v]]}>
                     {/* Left side as 3 stacked tiles */}
                     <View style={styles.sideColumn}>
-                        <Image source={assets[v].leftTop} style={styles.sideTile} />
+                        <Image source={BUTTON_IMAGES[v].left.top} style={styles.sideTile} />
                         <Image
-                            source={assets[v].leftCenter}
+                            source={BUTTON_IMAGES[v].left.center}
                             style={[
                                 styles.sideTile,
                                 styles.sideCenterTile,
@@ -103,14 +130,14 @@ export const Button: React.FC<Props> = ({
                             ]}
                             resizeMode="stretch"
                         />
-                        <Image source={assets[v].leftBottom} style={styles.sideTile} />
+                        <Image source={BUTTON_IMAGES[v].left.bottom} style={styles.sideTile} />
                     </View>
                     {/* Center area with top/center/bottom repeated horizontally */}
                     <View style={styles.centerRow}>
                         {/* Top strip */}
                         <View style={styles.topBottomRow}>
                             <Image
-                                source={assets[v].top}
+                                source={BUTTON_IMAGES[v].top}
                                 style={[
                                     styles.topBottomTile,
                                     { width: '100%', height: topHeight },
@@ -123,7 +150,7 @@ export const Button: React.FC<Props> = ({
                             <View
                                 style={[
                                     styles.centerFill,
-                                    { backgroundColor: assets[v].centerColor },
+                                    { backgroundColor: BUTTON_IMAGES[v].centerColor },
                                 ]}
                             >
                                 <View pointerEvents="none" style={styles.labelOverlay}>
@@ -134,7 +161,7 @@ export const Button: React.FC<Props> = ({
                         {/* Bottom strip */}
                         <View style={styles.topBottomRow}>
                             <Image
-                                source={assets[v].bottom}
+                                source={BUTTON_IMAGES[v].bottom}
                                 style={[
                                     styles.topBottomTile,
                                     { width: '100%', height: bottomHeight },
@@ -145,9 +172,9 @@ export const Button: React.FC<Props> = ({
                     </View>
                     {/* Right side as 3 stacked tiles */}
                     <View style={styles.sideColumn}>
-                        <Image source={assets[v].rightTop} style={styles.sideTile} />
+                        <Image source={BUTTON_IMAGES[v].right.top} style={styles.sideTile} />
                         <Image
-                            source={assets[v].rightCenter}
+                            source={BUTTON_IMAGES[v].right.center}
                             style={[
                                 styles.sideTile,
                                 styles.sideCenterTile,
@@ -155,13 +182,13 @@ export const Button: React.FC<Props> = ({
                             ]}
                             resizeMode="stretch"
                         />
-                        <Image source={assets[v].rightBottom} style={styles.sideTile} />
+                        <Image source={BUTTON_IMAGES[v].right.bottom} style={styles.sideTile} />
                     </View>
                 </View>
             </View>
         </TouchableOpacity>
     );
-};
+}
 const styles = StyleSheet.create({
     outer: {
         alignItems: 'stretch',
@@ -184,9 +211,11 @@ const styles = StyleSheet.create({
     danger: {},
     text: {
         color: tokens.colors.fg,
+        fontFamily: 'PixelifySans-Regular',
     },
     textDark: {
         color: '#000000',
+        fontFamily: 'PixelifySans-Regular',
     },
     container: {
         flexDirection: 'row',

@@ -9,7 +9,8 @@ export const tokens = {
         muted: '#a6accd',
         accent: '#8be9fd',
         danger: '#ff5555',
-        success: '#6abe30'
+        success: '#6abe30',
+        primary: '#1e3578',
     }
 } as const;
 

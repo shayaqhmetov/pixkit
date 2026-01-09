@@ -1,4 +1,4 @@
-export * from './primitives/Button';
+export { Button } from './primitives/Button';
 export * from './primitives/Panel';
 
 export * from './components/Navigation';
@@ -15,3 +15,4 @@ export * from './components/Switch';
 export * from './components/Separator';
 export * from './components/Avatar';
 export * from './components/Dialog';
+export * from './fonts';

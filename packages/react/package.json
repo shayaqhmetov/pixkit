@@ -49,8 +49,10 @@
     },
     "dependencies": {
         "@pixkit/tokens": "workspace:*",
-        "@types/react": "^19.1.12",
         "clsx": "^2.1.0"
+    },
+    "devDependencies": {
+        "@types/react": "^19.1.12"
     },
     "keywords": [
         "react",
