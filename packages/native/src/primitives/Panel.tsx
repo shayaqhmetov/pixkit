@@ -8,7 +8,7 @@ export const Panel: React.FC<React.PropsWithChildren> = ({ children }) => (
 
 const styles = StyleSheet.create({
     panel: {
-        backgroundColor: tokens.colors.panel,
+        backgroundColor: tokens.colors.lightBlue,
         padding: tokens.px * 4,
     },
 });

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Text, StyleSheet, type ViewStyle, TouchableOpacity, View, Image } from 'react-native';
 import { tokens } from '@pixkit/tokens';
+import { pixkitFontFamilies } from '../fonts';
 
 // Import assets at the top so Metro can resolve them
 
@@ -154,7 +155,7 @@ export function Button({
                                 ]}
                             >
                                 <View pointerEvents="none" style={styles.labelOverlay}>
-                                    <Text style={v === 'default' ? styles.text : styles.textDark}>{title}</Text>
+                                    <Text style={styles.text}>{title}</Text>
                                 </View>
                             </View>
                         </View>
@@ -210,12 +211,9 @@ const styles = StyleSheet.create({
     primary: {},
     danger: {},
     text: {
-        color: tokens.colors.fg,
-        fontFamily: 'PixelifySans-Regular',
-    },
-    textDark: {
-        color: '#000000',
-        fontFamily: 'PixelifySans-Regular',
+        color: tokens.colors.white,
+        fontFamily: pixkitFontFamilies.regular,
+        fontSize: tokens.fontSizes.regular,
     },
     container: {
         flexDirection: 'row',

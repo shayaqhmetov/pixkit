@@ -1,5 +1,6 @@
 export { Button } from './primitives/Button';
 export * from './primitives/Panel';
+export * from './primitives/TextField';
 
 export * from './components/Navigation';
 export * from './components/Sidebar';
