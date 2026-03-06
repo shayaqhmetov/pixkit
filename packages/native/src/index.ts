@@ -16,5 +16,7 @@ export * from './components/Switch';
 export * from './components/Separator';
 export * from './components/Avatar';
 export * from './components/Dialog';
+export * from './components/Select';
+export * from './components/ListCard';
 export * from './fonts';
 export { PixkitProvider, usePixkitFont } from './PixkitProvider';
