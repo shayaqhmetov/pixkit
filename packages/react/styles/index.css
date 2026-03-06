@@ -26,8 +26,8 @@
 }
 
 @font-face {
-    font-family: PressStart2P;
-    src: url(../assets/fonts/PressStart2P/PressStart2P-Regular.ttf) format("truetype");
+    font-family: PixelifySans;
+    src: url(../assets/fonts/PixelifySans/PixelifySans-Regular.ttf) format("truetype");
 }
 
 p,
@@ -41,7 +41,7 @@ button,
 span,
 pre,
 a {
-    font-family: var(--pixkit-font-family, PressStart2P);
+    font-family: var(--pixkit-font-family, PixelifySans);
 }
 
 html,
@@ -49,7 +49,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     margin: 0;
-    font-family: var(--pixkit-font-family, PressStart2P), sans-serif;
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
 }
 
 /* Примитивы */
@@ -75,5 +75,5 @@ textarea,
 select,
 button,
 label {
-    font-family: var(--pixkit-font-family, PressStart2P), sans-serif;
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
 }

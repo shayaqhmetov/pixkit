@@ -5,7 +5,7 @@ import { PixkitProvider } from '@pixkit/react';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
-  <PixkitProvider font="press-start-2p">
+  <PixkitProvider font="pixelify-sans">
     <HashRouter basename="">
       <App />
     </HashRouter>
