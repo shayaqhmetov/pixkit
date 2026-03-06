@@ -1,10 +1,10 @@
 import React from 'react';
 
-export type PixkitFont = 'pixelify-sans' | 'pixelify-sans';
+export type PixkitFont = 'pixelify-sans' | 'press-start-2p';
 
 const FONT_FAMILY_MAP: Record<PixkitFont, string> = {
   'pixelify-sans': 'PixelifySans',
-  'pixelify-sans': 'PressStart2P',
+  'press-start-2p': 'PressStart2P',
 };
 
 type Props = {
