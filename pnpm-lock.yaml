@@ -83,8 +83,8 @@ importers:
   packages/native:
     dependencies:
       '@pixkit/tokens':
-        specifier: workspace:*
-        version: link:../tokens
+        specifier: '>=0.3.0'
+        version: 0.3.0
       react:
         specifier: '>=18'
         version: 19.2.4
@@ -619,6 +619,9 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@pixkit/tokens@0.3.0':
+    resolution: {integrity: sha512-mW0hgKk0XOaBH3dIlaYyB3kBkZ/ueKLUeJmnf7YG5LzBo282UmtOvXF5jvjCHBKAEQL8cPupmqJVenPY6EFrCQ==}
 
   '@react-native/assets-registry@0.84.1':
     resolution: {integrity: sha512-lAJ6PDZv95FdT9s9uhc9ivhikW1Zwh4j9XdXM7J2l4oUA3t37qfoBmTSDLuPyE3Bi+Xtwa11hJm0BUTT2sc/gg==}
@@ -3153,6 +3156,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
+
+  '@pixkit/tokens@0.3.0': {}
 
   '@react-native/assets-registry@0.84.1': {}
 
