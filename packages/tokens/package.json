@@ -1,10 +1,8 @@
 {
     "name": "@pixkit/tokens",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Design tokens for PixKit component library",
-    "type": "module",
     "main": "dist/index.js",
-    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist",
@@ -12,6 +10,7 @@
     ],
     "exports": {
         ".": {
+            "require": "./dist/index.js",
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
