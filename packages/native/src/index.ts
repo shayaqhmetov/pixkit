@@ -17,3 +17,4 @@ export * from './components/Separator';
 export * from './components/Avatar';
 export * from './components/Dialog';
 export * from './fonts';
+export { PixkitProvider, usePixkitFont } from './PixkitProvider';
