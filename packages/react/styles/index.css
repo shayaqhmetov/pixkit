@@ -41,7 +41,7 @@ button,
 span,
 pre,
 a {
-    font-family: var(--pixkit-font-family, PixelifySans);
+    font-family: var(--pixkit-font-family, PressStart2P);
 }
 
 html,
@@ -49,7 +49,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     margin: 0;
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, PressStart2P), sans-serif;
 }
 
 /* Примитивы */
@@ -75,5 +75,5 @@ textarea,
 select,
 button,
 label {
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, PressStart2P), sans-serif;
 }

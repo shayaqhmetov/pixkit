@@ -12,7 +12,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export function PixkitProvider({ font = 'pixelify-sans', children }: Props) {
+export function PixkitProvider({ font = 'press-start-2p', children }: Props) {
   return (
     <div style={{ '--pixkit-font-family': FONT_FAMILY_MAP[font] } as React.CSSProperties}>
       {children}
