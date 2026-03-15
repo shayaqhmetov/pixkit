@@ -3,17 +3,17 @@
 
 // Keep keys in sync with fontFamily used inside components
 export const PIXKIT_FONT_SOURCES = {
-  'PixelifySans-Regular': require('../assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf'),
-  'PixelifySans-Medium': require('../assets/fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf'),
-  'PixelifySans-SemiBold': require('../assets/fonts/Pixelify_Sans/static/PixelifySans-SemiBold.ttf'),
-  'PixelifySans-Bold': require('../assets/fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf'),
+  'VCROSDMono-Regular': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
+  'VCROSDMono-Medium': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
+  'VCROSDMono-SemiBold': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
+  'VCROSDMono-Bold': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
 } as const;
 
 export type PixkitFontName = keyof typeof PIXKIT_FONT_SOURCES;
 
 export const pixkitFontFamilies = {
-  regular: 'PixelifySans-Regular' as PixkitFontName,
-  medium: 'PixelifySans-Medium' as PixkitFontName,
-  semibold: 'PixelifySans-SemiBold' as PixkitFontName,
-  bold: 'PixelifySans-Bold' as PixkitFontName,
+  regular: 'VCROSDMono-Regular' as PixkitFontName,
+  medium: 'VCROSDMono-Medium' as PixkitFontName,
+  semibold: 'VCROSDMono-SemiBold' as PixkitFontName,
+  bold: 'VCROSDMono-Bold' as PixkitFontName,
 } as const;
