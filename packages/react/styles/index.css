@@ -25,6 +25,11 @@
     src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: PixelifySans;
+    src: url(../assets/fonts/PixelifySans/PixelifySans-Regular.ttf) format("truetype");
+}
+
 p,
 h1,
 h2,
@@ -36,7 +41,7 @@ button,
 span,
 pre,
 a {
-    font-family: PixelifySans;
+    font-family: var(--pixkit-font-family, PixelifySans);
 }
 
 html,
@@ -44,7 +49,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     margin: 0;
-    font-family: PixelifySans, sans-serif;
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
 }
 
 /* Примитивы */
@@ -70,5 +75,5 @@ textarea,
 select,
 button,
 label {
-    font-family: PixelifySans, sans-serif;
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
 }

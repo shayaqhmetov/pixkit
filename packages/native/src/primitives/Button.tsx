@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, StyleSheet, type ViewStyle, TouchableOpacity, View, Image } from 'react-native';
 import { tokens } from '@pixkit/tokens';
-import { pixkitFontFamilies } from '../fonts';
+import { usePixkitFont } from '../PixkitProvider';
 
 // Import assets at the top so Metro can resolve them
 
@@ -94,6 +94,7 @@ export function Button({
     fullWidth,
 }: Props): React.ReactNode {
     const v: Variant = variant ?? 'default';
+    const fontFamilies = usePixkitFont();
     // Determine tile sizes from assets
     const topSource = Image.resolveAssetSource(BUTTON_IMAGES[v].top);
     const bottomSource = Image.resolveAssetSource(BUTTON_IMAGES[v].bottom);
@@ -155,7 +156,7 @@ export function Button({
                                 ]}
                             >
                                 <View pointerEvents="none" style={styles.labelOverlay}>
-                                    <Text style={styles.text}>{title}</Text>
+                                    <Text style={[styles.text, { fontFamily: fontFamilies.regular }]}>{title}</Text>
                                 </View>
                             </View>
                         </View>
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     danger: {},
     text: {
         color: tokens.colors.white,
-        fontFamily: pixkitFontFamilies.regular,
+
         fontSize: tokens.fontSizes.regular,
     },
     container: {

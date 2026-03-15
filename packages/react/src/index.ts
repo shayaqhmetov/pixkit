@@ -20,3 +20,5 @@ export * from './hooks/usePixTokens';
 // Re-export tokens for convenience
 export { tokens } from '@pixkit/tokens';
 export type { PixTokens } from '@pixkit/tokens';
+export { PixkitProvider } from './PixkitProvider';
+export type { PixkitFont } from './PixkitProvider';
