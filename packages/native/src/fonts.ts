@@ -1,5 +1,5 @@
 // Font sources and names used by @pixkit/native components.
-// Consumers (Expo) can pass this into expo-font's useFonts().
+// Consumers (Expo) pass PIXKIT_FONT_SOURCES into expo-font's useFonts().
 
 const PIXELIFY_SANS_SOURCES = {
   'PixelifySans-Regular': require('../assets/fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf'),
@@ -16,7 +16,7 @@ const VCR_OSD_MONO_SOURCES = {
   'VCROSDMono-Regular': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
   'VCROSDMono-Medium': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
   'VCROSDMono-SemiBold': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
-  'VCROSDMono-Bold': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
+  'VCROSDMono-Bold':     require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
 } as const;
 
 // All font sources combined — pass this to Expo's useFonts()
@@ -32,16 +32,16 @@ export type PixkitFont = 'pixelify-sans' | 'press-start-2p' | 'vcr-osd-mono';
 
 export const FONT_FAMILIES: Record<PixkitFont, { regular: string; medium: string; semibold: string; bold: string }> = {
   'pixelify-sans': {
-    regular: 'PixelifySans-Regular',
-    medium: 'PixelifySans-Medium',
+    regular:  'PixelifySans-Regular',
+    medium:   'PixelifySans-Medium',
     semibold: 'PixelifySans-SemiBold',
-    bold: 'PixelifySans-Bold',
+    bold:     'PixelifySans-Bold',
   },
   'press-start-2p': {
-    regular: 'PressStart2P-Regular',
-    medium: 'PressStart2P-Regular',
+    regular:  'PressStart2P-Regular',
+    medium:   'PressStart2P-Regular',
     semibold: 'PressStart2P-Regular',
-    bold: 'PressStart2P-Regular',
+    bold:     'PressStart2P-Regular',
   },
   'vcr-osd-mono': {
     regular: 'VCROSDMono-Regular',
