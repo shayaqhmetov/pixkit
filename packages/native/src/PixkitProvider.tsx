@@ -7,8 +7,8 @@ type PixkitContextValue = {
 };
 
 const PixkitContext = createContext<PixkitContextValue>({
-  font: 'pixelify-sans',
-  fontFamilies: FONT_FAMILIES['pixelify-sans'],
+  font: 'vcr-osd-mono',
+  fontFamilies: FONT_FAMILIES['vcr-osd-mono'],
 });
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export function PixkitProvider({ font = 'pixelify-sans', children }: Props) {
+export function PixkitProvider({ font = 'vcr-osd-mono', children }: Props) {
   return (
     <PixkitContext.Provider value={{ font, fontFamilies: FONT_FAMILIES[font] }}>
       {children}
