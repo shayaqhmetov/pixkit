@@ -1,0 +1,78 @@
+@import "./variables.css";
+
+.pix-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--px) * 3);
+    padding: calc(var(--px) * 4);
+    border: var(--border) solid var(--black);
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    line-height: 1.5;
+    position: relative;
+}
+
+.pix-alert__icon {
+    font-size: 18px;
+    line-height: 1.3;
+    flex-shrink: 0;
+}
+
+.pix-alert__body {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--px) * 1);
+    flex: 1;
+    min-width: 0;
+}
+
+.pix-alert__title {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    display: block;
+}
+
+.pix-alert__message {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 12px;
+}
+
+.pix-alert__dismiss {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 2px 4px;
+    opacity: 0.6;
+    color: inherit;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+}
+
+.pix-alert__dismiss:hover { opacity: 1; }
+
+/* Variants */
+.pix-alert--info {
+    background: rgba(139, 233, 253, 0.08);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.pix-alert--success {
+    background: rgba(80, 250, 123, 0.08);
+    border-color: var(--success);
+    color: var(--success);
+}
+.pix-alert--warning {
+    background: rgba(241, 250, 140, 0.08);
+    border-color: #f1fa8c;
+    color: #f1fa8c;
+}
+.pix-alert--danger {
+    background: rgba(255, 85, 85, 0.08);
+    border-color: var(--danger);
+    color: var(--danger);
+}

@@ -15,6 +15,12 @@
 @import "./separator.css";
 @import "./avatar.css";
 @import "./dialog.css";
+@import "./tag.css";
+@import "./alert.css";
+@import "./progress.css";
+@import "./stat-card.css";
+@import "./empty-state.css";
+@import "./table.css";
 
 * {
     image-rendering: pixelated;

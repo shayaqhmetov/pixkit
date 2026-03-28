@@ -15,6 +15,12 @@ export * from './components/Switch';
 export * from './components/Separator';
 export * from './components/Avatar';
 export * from './components/Dialog';
+export * from './components/Tag';
+export * from './components/Alert';
+export * from './components/Progress';
+export * from './components/StatCard';
+export * from './components/EmptyState';
+export * from './components/Table';
 export * from './hooks/usePixTokens';
 
 // Re-export tokens for convenience

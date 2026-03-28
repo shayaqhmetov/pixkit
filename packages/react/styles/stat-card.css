@@ -1,0 +1,63 @@
+@import "./variables.css";
+
+.pix-stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--px) * 2);
+    padding: calc(var(--px) * 5);
+    background: var(--panel);
+    border: var(--border) solid var(--black);
+    border-radius: var(--radius);
+    box-shadow: 0 var(--px) 0 var(--black);
+    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.pix-stat-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: calc(var(--px) * 2);
+}
+
+.pix-stat-card__label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.pix-stat-card__icon {
+    font-size: 20px;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.pix-stat-card__value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--fg);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.pix-stat-card__trend {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--px) * 1.5);
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: calc(var(--px) * 1);
+}
+
+.pix-stat-card__trend--up   { color: var(--success); }
+.pix-stat-card__trend--down { color: var(--danger); }
+.pix-stat-card__trend-label { color: var(--muted); font-weight: 400; }
+
+/* Accent top-border variants */
+.pix-stat-card--accent  { border-top: 4px solid var(--accent); }
+.pix-stat-card--success { border-top: 4px solid var(--success); }
+.pix-stat-card--danger  { border-top: 4px solid var(--danger); }
+.pix-stat-card--warning { border-top: 4px solid #f1fa8c; }

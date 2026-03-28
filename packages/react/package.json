@@ -38,6 +38,12 @@
         "./switch.css": "./styles/switch.css",
         "./tabs.css": "./styles/tabs.css",
         "./textarea.css": "./styles/textarea.css",
+        "./tag.css": "./styles/tag.css",
+        "./alert.css": "./styles/alert.css",
+        "./progress.css": "./styles/progress.css",
+        "./stat-card.css": "./styles/stat-card.css",
+        "./empty-state.css": "./styles/empty-state.css",
+        "./table.css": "./styles/table.css",
         "./package.json": "./package.json"
     },
     "scripts": {
