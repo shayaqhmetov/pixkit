@@ -7,6 +7,7 @@ import {
     Modal,
     FlatList,
     SafeAreaView,
+    Platform,
 } from 'react-native';
 import { tokens } from '@pixkit/tokens';
 import { usePixkitFont } from '../PixkitProvider';
@@ -52,7 +53,7 @@ export function Select({
             <TouchableOpacity
                 style={[styles.trigger, hasError && styles.triggerError]}
                 onPress={() => setOpen(true)}
-                activeOpacity={0.7}
+                activeOpacity={0.75}
             >
                 <Text
                     style={[
@@ -64,13 +65,13 @@ export function Select({
                 >
                     {displayLabel}
                 </Text>
-                <Text style={styles.chevron}>▼</Text>
+                <Text style={[styles.chevron, open && styles.chevronOpen]}>▼</Text>
             </TouchableOpacity>
 
             <Modal
                 visible={open}
                 transparent
-                animationType="fade"
+                animationType="slide"
                 onRequestClose={() => setOpen(false)}
             >
                 <TouchableOpacity
@@ -80,40 +81,51 @@ export function Select({
                 >
                     <SafeAreaView style={styles.safeArea}>
                         <View style={styles.sheet}>
+                            {/* Handle bar */}
+                            <View style={styles.handleBar} />
+
                             {label ? (
                                 <Text style={[styles.sheetTitle, { fontFamily: fontFamilies.bold }]}>
                                     {label}
                                 </Text>
                             ) : null}
+
                             <FlatList
                                 data={options}
                                 keyExtractor={(item) => item.value}
-                                renderItem={({ item }) => (
-                                    <TouchableOpacity
-                                        style={[
-                                            styles.option,
-                                            item.value === value && styles.optionSelected,
-                                        ]}
-                                        onPress={() => {
-                                            onValueChange(item.value);
-                                            setOpen(false);
-                                        }}
-                                        activeOpacity={0.7}
-                                    >
-                                        <Text
+                                renderItem={({ item, index }) => {
+                                    const isSelected = item.value === value;
+                                    const isLast = index === options.length - 1;
+                                    return (
+                                        <TouchableOpacity
                                             style={[
-                                                styles.optionText,
-                                                item.value === value && styles.optionTextSelected,
-                                                { fontFamily: fontFamilies.regular },
+                                                styles.option,
+                                                isSelected && styles.optionSelected,
+                                                isLast && styles.optionLast,
                                             ]}
+                                            onPress={() => {
+                                                onValueChange(item.value);
+                                                setOpen(false);
+                                            }}
+                                            activeOpacity={0.65}
                                         >
-                                            {item.label}
-                                        </Text>
-                                        {item.value === value ? (
-                                            <Text style={styles.checkmark}>✓</Text>
-                                        ) : null}
-                                    </TouchableOpacity>
-                                )}
+                                            <Text
+                                                style={[
+                                                    styles.optionText,
+                                                    isSelected && styles.optionTextSelected,
+                                                    { fontFamily: isSelected ? fontFamilies.bold : fontFamilies.regular },
+                                                ]}
+                                            >
+                                                {item.label}
+                                            </Text>
+                                            {isSelected ? (
+                                                <View style={styles.checkmarkWrap}>
+                                                    <Text style={styles.checkmark}>✓</Text>
+                                                </View>
+                                            ) : null}
+                                        </TouchableOpacity>
+                                    );
+                                }}
                             />
                         </View>
                     </SafeAreaView>
@@ -122,6 +134,8 @@ export function Select({
         </View>
     );
 }
+
+const SHEET_RADIUS = tokens.radius * 3;
 
 const styles = StyleSheet.create({
     label: {
@@ -157,19 +171,44 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginLeft: 8,
     },
+    chevronOpen: {
+        color: tokens.colors.accent,
+    },
     backdrop: {
         flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.6)',
+        backgroundColor: 'rgba(0,0,0,0.65)',
         justifyContent: 'flex-end',
     },
     safeArea: {
         backgroundColor: tokens.colors.lightBlue,
-        borderTopLeftRadius: tokens.radius * 2,
-        borderTopRightRadius: tokens.radius * 2,
-        maxHeight: '60%',
+        borderTopLeftRadius: SHEET_RADIUS,
+        borderTopRightRadius: SHEET_RADIUS,
+        maxHeight: '65%',
+        ...Platform.select({
+            ios: {
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: -4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 12,
+            },
+            android: {
+                elevation: 16,
+            },
+        }),
     },
     sheet: {
-        padding: 16,
+        paddingHorizontal: 16,
+        paddingBottom: 8,
+    },
+    handleBar: {
+        width: 36,
+        height: 4,
+        borderRadius: 2,
+        backgroundColor: tokens.colors.muted,
+        alignSelf: 'center',
+        marginTop: 10,
+        marginBottom: 16,
+        opacity: 0.5,
     },
     sheetTitle: {
         color: tokens.colors.white,
@@ -180,13 +219,16 @@ const styles = StyleSheet.create({
     option: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 14,
-        paddingHorizontal: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: tokens.colors.bg,
+        paddingVertical: 15,
+        paddingHorizontal: 12,
+        borderRadius: tokens.radius,
+        marginBottom: 2,
+    },
+    optionLast: {
+        marginBottom: 0,
     },
     optionSelected: {
-        backgroundColor: `${tokens.colors.primary}40`,
+        backgroundColor: `${tokens.colors.primary}60`,
     },
     optionText: {
         color: tokens.colors.white,
@@ -196,8 +238,17 @@ const styles = StyleSheet.create({
     optionTextSelected: {
         color: tokens.colors.accent,
     },
+    checkmarkWrap: {
+        width: 24,
+        height: 24,
+        borderRadius: 12,
+        backgroundColor: `${tokens.colors.accent}25`,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     checkmark: {
         color: tokens.colors.accent,
-        fontSize: tokens.fontSizes.regular,
+        fontSize: 13,
+        fontWeight: '700',
     },
 });
