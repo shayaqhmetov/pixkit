@@ -14,6 +14,7 @@ import { usePixkitFont } from '../PixkitProvider';
 export type SelectOption = {
     label: string;
     value: string;
+    triggerLabel?: string;
 };
 
 export type SelectProps = {
@@ -37,7 +38,7 @@ export function Select({
     const fontFamilies = usePixkitFont();
 
     const selectedOption = options.find((o) => o.value === value);
-    const displayLabel = selectedOption ? selectedOption.label : placeholder;
+    const displayLabel = selectedOption ? (selectedOption.triggerLabel ?? selectedOption.label) : placeholder;
     const isPlaceholder = !selectedOption;
 
     return (
