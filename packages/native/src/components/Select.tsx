@@ -7,7 +7,6 @@ import {
     Modal,
     FlatList,
     SafeAreaView,
-    Platform,
 } from 'react-native';
 import { tokens } from '@pixkit/tokens';
 import { usePixkitFont } from '../PixkitProvider';
@@ -145,15 +144,17 @@ const styles = StyleSheet.create({
         marginLeft: tokens.px,
     },
     trigger: {
-        height: 50,
-        borderWidth: tokens.border,
-        borderColor: tokens.colors.bg,
-        borderRadius: tokens.radius,
+        minHeight: 50,
+        borderWidth: 1,
+        borderColor: `${tokens.colors.accent}40`,
+        borderRadius: 10,
         backgroundColor: tokens.colors.lightBlue,
-        paddingHorizontal: tokens.px * 2,
+        paddingHorizontal: 14,
+        paddingVertical: 8,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
+        gap: 8,
     },
     triggerError: {
         borderColor: tokens.colors.danger,
@@ -169,7 +170,6 @@ const styles = StyleSheet.create({
     chevron: {
         color: tokens.colors.muted,
         fontSize: 10,
-        marginLeft: 8,
     },
     chevronOpen: {
         color: tokens.colors.accent,
@@ -184,17 +184,6 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: SHEET_RADIUS,
         borderTopRightRadius: SHEET_RADIUS,
         maxHeight: '65%',
-        ...Platform.select({
-            ios: {
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: -4 },
-                shadowOpacity: 0.3,
-                shadowRadius: 12,
-            },
-            android: {
-                elevation: 16,
-            },
-        }),
     },
     sheet: {
         paddingHorizontal: 16,
