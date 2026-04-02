@@ -17,6 +17,8 @@ export type SelectOption = {
     triggerLabel?: string;
 };
 
+const CIRCLE_SIZE = 54;
+
 export type SelectProps = {
     label?: string;
     value: string;
@@ -24,6 +26,7 @@ export type SelectProps = {
     onValueChange: (value: string) => void;
     hasError?: boolean;
     placeholder?: string;
+    circle?: boolean;
 };
 
 export function Select({
@@ -33,6 +36,7 @@ export function Select({
     onValueChange,
     hasError = false,
     placeholder = 'Select an option',
+    circle = false,
 }: SelectProps) {
     const [open, setOpen] = React.useState(false);
     const fontFamilies = usePixkitFont();
@@ -50,21 +54,26 @@ export function Select({
             ) : null}
 
             <TouchableOpacity
-                style={[styles.trigger, hasError && styles.triggerError]}
+                style={[
+                    styles.trigger,
+                    circle && styles.triggerCircle,
+                    hasError && styles.triggerError,
+                ]}
                 onPress={() => setOpen(true)}
                 activeOpacity={0.75}
             >
                 <Text
                     style={[
                         styles.triggerText,
+                        circle && styles.triggerTextCircle,
                         isPlaceholder && styles.placeholderText,
-                        { fontFamily: fontFamilies.regular },
+                        { fontFamily: circle ? fontFamilies.bold : fontFamilies.regular },
                     ]}
                     numberOfLines={1}
                 >
                     {displayLabel}
                 </Text>
-                <Text style={[styles.chevron, open && styles.chevronOpen]}>▼</Text>
+                {!circle && <Text style={[styles.chevron, open && styles.chevronOpen]}>▼</Text>}
             </TouchableOpacity>
 
             <Modal
@@ -156,6 +165,17 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         gap: 8,
     },
+    triggerCircle: {
+        width: CIRCLE_SIZE,
+        height: CIRCLE_SIZE,
+        minHeight: CIRCLE_SIZE,
+        borderRadius: CIRCLE_SIZE / 2,
+        paddingHorizontal: 0,
+        paddingVertical: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 0,
+    },
     triggerError: {
         borderColor: tokens.colors.danger,
     },
@@ -163,6 +183,11 @@ const styles = StyleSheet.create({
         color: tokens.colors.white,
         fontSize: tokens.fontSizes.regular,
         flex: 1,
+    },
+    triggerTextCircle: {
+        flex: 0,
+        fontSize: tokens.fontSizes.large,
+        textAlign: 'center',
     },
     placeholderText: {
         color: tokens.colors.whitePlaceholder,
