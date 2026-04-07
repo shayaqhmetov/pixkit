@@ -56,7 +56,12 @@ const items = [
     title: "Separator",
     url: "#components?component=separator",
     icon: "SeparatorIcon",
-  }
+  },
+  {
+    title: "Navbar",
+    url: "#components?component=navbar",
+    icon: "NavbarIcon",
+  },
 ]
 
 export function AppSidebar() {
