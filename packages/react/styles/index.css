@@ -26,16 +26,6 @@
     image-rendering: pixelated;
 }
 
-@font-face {
-    font-family: PixelifySans;
-    src: url(../assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf) format("truetype");
-}
-
-@font-face {
-    font-family: PixelifySans;
-    src: url(../assets/fonts/PixelifySans/PixelifySans-Regular.ttf) format("truetype");
-}
-
 p,
 h1,
 h2,
@@ -47,7 +37,7 @@ button,
 span,
 pre,
 a {
-    font-family: var(--pixkit-font-family, PixelifySans);
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
 }
 
 html,
@@ -55,7 +45,7 @@ body {
     background: var(--bg);
     color: var(--fg);
     margin: 0;
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
 }
 
 /* Примитивы */
@@ -81,5 +71,5 @@ textarea,
 select,
 button,
 label {
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
 }
