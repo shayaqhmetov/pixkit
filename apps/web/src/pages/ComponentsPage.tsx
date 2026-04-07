@@ -1,9 +1,9 @@
-import { SidebarProvider, Sidebar, SidebarHeader, SidebarContent, SidebarGroup, SidebarFooter } from "@pixkit/react";
+import { NavbarComponent } from "../components/components";
+
 export default function ComponentsPage() {
   return (
     <div>
-      <h1>Components</h1>
-      <p>List of components goes here.</p>
+      <NavbarComponent />
     </div>
   );
 }

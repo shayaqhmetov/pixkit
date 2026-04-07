@@ -7,3 +7,4 @@ export * from './Forms';
 export * from './Dialog';
 export * from './Avatar';
 export * from './Separator';
+export * from './NavbarComponent';
