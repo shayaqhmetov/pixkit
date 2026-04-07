@@ -9,7 +9,7 @@
     border: var(--border) solid var(--black);
     border-radius: var(--radius);
     box-shadow: 0 var(--px) 0 var(--black);
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
     transition: transform 0.1s, box-shadow 0.1s;
 }
 

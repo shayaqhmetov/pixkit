@@ -8,7 +8,7 @@
     border: var(--border) solid var(--black);
     border-radius: var(--radius);
     font-size: 13px;
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
     line-height: 1.5;
     position: relative;
 }

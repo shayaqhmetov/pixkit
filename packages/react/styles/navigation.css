@@ -45,7 +45,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: PixelifySans;
+  font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
   margin: 0px 8px;
 }
 

@@ -8,7 +8,7 @@
     gap: calc(var(--px) * 3);
     padding: calc(var(--px) * 14) calc(var(--px) * 6);
     text-align: center;
-    font-family: var(--pixkit-font-family, PixelifySans), sans-serif;
+    font-family: var(--pixkit-font-family, 'Pixelify Sans'), sans-serif;
     color: var(--muted);
 }
 
