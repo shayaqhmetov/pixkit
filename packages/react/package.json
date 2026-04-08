@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/react",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "Pixel-art themed React UI components",
     "type": "module",
     "sideEffects": [
@@ -44,6 +44,7 @@
         "./stat-card.css": "./styles/stat-card.css",
         "./empty-state.css": "./styles/empty-state.css",
         "./table.css": "./styles/table.css",
+        "./toaster.css": "./styles/toaster.css",
         "./package.json": "./package.json"
     },
     "scripts": {
@@ -58,7 +59,8 @@
         "clsx": "^2.1.0"
     },
     "devDependencies": {
-        "@types/react": "^19.1.12"
+        "@types/react": "^19.1.12",
+        "@types/react-dom": "^19.0.0"
     },
     "keywords": [
         "react",

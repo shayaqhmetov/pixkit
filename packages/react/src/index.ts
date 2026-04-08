@@ -18,6 +18,7 @@ export * from './components/Avatar';
 export * from './components/Dialog';
 export * from './components/Tag';
 export * from './components/Alert';
+export * from './components/Toaster';
 export * from './components/Progress';
 export * from './components/StatCard';
 export * from './components/EmptyState';
