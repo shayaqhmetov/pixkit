@@ -7,3 +7,4 @@ packages/**/dist
 .turbo/
 node_modules/.cache/turbo/
 **/.vite/
+.env

@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/react",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "description": "Pixel-art themed React UI components",
     "type": "module",
     "sideEffects": [
@@ -82,6 +82,7 @@
     },
     "homepage": "https://github.com/shayaqhmetov/pixkit#readme",
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
     }
 }
