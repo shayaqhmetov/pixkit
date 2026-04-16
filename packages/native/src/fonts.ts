@@ -13,10 +13,10 @@ const PRESS_START_2P_SOURCES = {
 } as const;
 
 const VCR_OSD_MONO_SOURCES = {
-  'VCROSDMono-Regular': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
-  'VCROSDMono-Medium': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
-  'VCROSDMono-SemiBold': require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
-  'VCROSDMono-Bold':     require('../assets/fonts/VCROSDMono/VCROSDMono[NolivantNTEdit]-Regular.ttf'),
+  'VCROSDMono-Regular': require('../assets/fonts/VCROSDMono/VCROSDMono-Regular.ttf'),
+  'VCROSDMono-Medium': require('../assets/fonts/VCROSDMono/VCROSDMono-Regular.ttf'),
+  'VCROSDMono-SemiBold': require('../assets/fonts/VCROSDMono/VCROSDMono-Regular.ttf'),
+  'VCROSDMono-Bold':     require('../assets/fonts/VCROSDMono/VCROSDMono-Regular.ttf'),
 } as const;
 
 // All font sources combined — pass this to Expo's useFonts()

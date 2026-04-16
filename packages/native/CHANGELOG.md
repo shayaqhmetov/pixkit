@@ -1,5 +1,11 @@
 # @pixkit/native
 
+## 0.4.6
+
+### Patch Changes
+
+- rename VCROSDMono font file to remove brackets from filename
+
 ## 0.3.0
 
 ### Minor Changes
