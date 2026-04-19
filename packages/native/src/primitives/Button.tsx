@@ -83,6 +83,7 @@ type Props = {
     width?: number;
     height?: number;
     fullWidth?: boolean;
+    testID?: string;
 };
 export function Button({
     title,
@@ -92,6 +93,7 @@ export function Button({
     width,
     height,
     fullWidth,
+    testID,
 }: Props): React.ReactNode {
     const v: Variant = variant ?? 'default';
     const fontFamilies = usePixkitFont();
@@ -111,7 +113,7 @@ export function Button({
     const widthStyle = width ? { width } : undefined;
 
     return (
-        <TouchableOpacity onPress={onPress} style={style}>
+        <TouchableOpacity onPress={onPress} style={style} testID={testID}>
             <View
                 style={[
                     styles.outer,
