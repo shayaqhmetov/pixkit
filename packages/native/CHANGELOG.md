@@ -1,5 +1,11 @@
 # @pixkit/native
 
+## 0.4.7
+
+### Patch Changes
+
+- Forward testID prop to TouchableOpacity in Button component
+
 ## 0.4.6
 
 ### Patch Changes
