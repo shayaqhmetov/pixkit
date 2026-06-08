@@ -1,0 +1,209 @@
+/* ============================================================
+   QURBAQA — clean-base + pixel-accent theme for @pixkit/vue
+   Ported from the Claude Design "Qurbaqa Web" tokens.
+   Scoped under .qurbaqa so it never collides with a host app's
+   own design tokens (e.g. the admin Dracula pixkit theme).
+   ============================================================ */
+
+.qurbaqa {
+  /* Brand — frog greens */
+  --brand-50:  oklch(0.97 0.04 145);
+  --brand-100: oklch(0.92 0.08 145);
+  --brand-200: oklch(0.85 0.13 145);
+  --brand-300: oklch(0.78 0.16 145);
+  --brand-400: oklch(0.72 0.18 145);
+  --brand-500: oklch(0.66 0.18 145);
+  --brand-600: oklch(0.58 0.17 145);
+  --brand-700: oklch(0.48 0.14 145);
+  --brand-800: oklch(0.36 0.10 145);
+  --brand-900: oklch(0.26 0.07 145);
+
+  /* Accents — module colors */
+  --c-finance:  oklch(0.78 0.16 145);
+  --c-food:     oklch(0.78 0.16 60);
+  --c-sport:    oklch(0.78 0.16 25);
+  --c-goals:    oklch(0.78 0.16 290);
+  --c-health:   oklch(0.78 0.14 200);
+  --c-water:    oklch(0.78 0.14 220);
+
+  /* Dark theme (default) */
+  --bg:         oklch(0.18 0.012 165);
+  --bg-elev-1:  oklch(0.22 0.014 165);
+  --bg-elev-2:  oklch(0.26 0.016 165);
+  --bg-elev-3:  oklch(0.30 0.018 165);
+  --line:       oklch(0.32 0.018 165);
+  --line-soft:  oklch(0.26 0.014 165);
+
+  --fg:         oklch(0.97 0.01 165);
+  --fg-muted:   oklch(0.74 0.012 165);
+  --fg-subtle:  oklch(0.55 0.012 165);
+
+  --pos:        oklch(0.78 0.16 145);
+  --neg:        oklch(0.72 0.16 25);
+  --warn:       oklch(0.82 0.14 80);
+
+  /* Type */
+  --font-sans: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-pixel: "Press Start 2P", "VT323", monospace;
+  --font-display: "Inter Tight", -apple-system, system-ui, sans-serif;
+
+  /* Radii */
+  --r-1: 4px;
+  --r-2: 8px;
+  --r-3: 12px;
+  --r-4: 16px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.25);
+  --shadow-2: 0 4px 16px rgba(0,0,0,0.30);
+  --shadow-3: 0 12px 40px rgba(0,0,0,0.40);
+
+  --px: 4px;
+  --sidebar-w: 240px;
+  --header-h: 64px;
+
+  /* Base surface for the scope */
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.qurbaqa[data-theme="light"],
+[data-theme="light"] .qurbaqa {
+  --bg:         oklch(0.985 0.005 145);
+  --bg-elev-1:  oklch(1.00 0 0);
+  --bg-elev-2:  oklch(0.97 0.005 145);
+  --bg-elev-3:  oklch(0.94 0.008 145);
+  --line:       oklch(0.88 0.01 145);
+  --line-soft:  oklch(0.93 0.006 145);
+
+  --fg:         oklch(0.20 0.01 165);
+  --fg-muted:   oklch(0.42 0.012 165);
+  --fg-subtle:  oklch(0.60 0.012 165);
+}
+
+/* Accent override hook (Tweaks "accent") */
+.qurbaqa[style*="--brand-500-override"] { --brand-500: var(--brand-500-override); }
+
+/* Pixel intensity */
+.qurbaqa[data-pixel="full"] { --r-1: 0px; --r-2: 2px; --r-3: 4px; --r-4: 6px; }
+.qurbaqa[data-pixel="none"] .pixq-pixel-text { font-family: var(--font-sans); letter-spacing: 0; }
+
+/* ---- box-sizing within scope ---- */
+.qurbaqa *, .qurbaqa *::before, .qurbaqa *::after { box-sizing: border-box; }
+
+/* ============================================================
+   Primitives
+   ============================================================ */
+.pixq-card {
+  background: var(--bg-elev-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-3);
+  padding: 20px;
+}
+.pixq-card--tight { padding: 16px; }
+.pixq-card--flat { background: transparent; }
+
+.pixq-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--line-soft);
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.pixq-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--r-2);
+  border: 1px solid var(--line);
+  background: var(--bg-elev-2);
+  color: var(--fg);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+}
+.pixq-btn:hover { background: var(--bg-elev-3); }
+.pixq-btn:active { transform: translateY(1px); }
+.pixq-btn--primary {
+  background: var(--brand-500);
+  border-color: var(--brand-500);
+  color: oklch(0.18 0.012 165);
+  font-weight: 600;
+}
+.pixq-btn--primary:hover { background: var(--brand-400); border-color: var(--brand-400); }
+.pixq-btn--ghost { background: transparent; border-color: transparent; }
+.pixq-btn--ghost:hover { background: var(--bg-elev-2); }
+.pixq-btn--icon { padding: 8px; }
+
+.pixq-kbd {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--bg-elev-3);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  color: var(--fg-muted);
+  min-width: 18px; justify-content: center;
+}
+
+.pixq-pixel-text { font-family: var(--font-pixel); letter-spacing: 0.02em; }
+.pixq-mono { font-family: var(--font-mono); }
+
+.pixq-pixelated { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+/* Tag (small pixel eyebrow chip) */
+.pixq-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--brand-400);
+  padding: 4px 8px; border-radius: 4px;
+  border: 1px solid color-mix(in oklch, var(--brand-500) 40%, var(--line));
+  background: color-mix(in oklch, var(--brand-500) 10%, transparent);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.pixq-tag__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brand-500); box-shadow: 0 0 6px var(--brand-500);
+}
+
+/* Inputs */
+.pixq-input, select.pixq-input {
+  width: 100%; box-sizing: border-box;
+  padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev-2);
+  color: var(--fg);
+  font-size: 14px; font-family: inherit;
+  outline: none;
+}
+.pixq-input:focus { border-color: var(--brand-500); }
+.pixq-input::placeholder { color: var(--fg-subtle); }
+
+/* Field label helper */
+.pixq-field__label {
+  display: block; font-size: 10px; font-family: var(--font-mono);
+  color: var(--fg-subtle); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;
+}
+
+/* Progress */
+.pixq-progress { height: 8px; background: var(--bg-elev-3); border-radius: 999px; overflow: hidden; }
+.pixq-progress__fill { height: 100%; background: var(--brand-500); border-radius: 999px; transition: width .4s ease; }
+.pixq-progress--pixel { display: flex; gap: 2px; background: none; border-radius: 0; overflow: visible; }
+.pixq-progress--pixel .pixq-progress__seg { flex: 1; border: 1px solid var(--line-soft); }
+
+/* Scrollbar inside scope */
+.qurbaqa ::-webkit-scrollbar { width: 10px; height: 10px; }
+.qurbaqa ::-webkit-scrollbar-track { background: transparent; }
+.qurbaqa ::-webkit-scrollbar-thumb { background: var(--bg-elev-3); border-radius: 999px; border: 2px solid var(--bg); }
+.qurbaqa ::-webkit-scrollbar-thumb:hover { background: var(--line); }
