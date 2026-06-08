@@ -1,6 +1,6 @@
 {
     "name": "@pixkit/vue",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Pixel-art themed Vue UI components",
     "type": "module",
     "sideEffects": [
