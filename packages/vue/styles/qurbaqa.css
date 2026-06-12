@@ -144,6 +144,67 @@
 .pixq-btn--ghost:hover { background: var(--bg-elev-2); }
 .pixq-btn--icon { padding: 8px; }
 
+/* Nav / menu item (pixel-art) — see @pixkit/vue PixNavButton */
+.pixq-nav {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 2px solid var(--line-soft);
+  border-radius: var(--r-1);
+  background: var(--bg-elev-1);
+  color: var(--fg-muted);
+  font-family: inherit;
+  font-weight: 600; font-size: 13px;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 0 0 var(--line-soft);
+  transition: background .1s steps(2), color .1s steps(2), border-color .1s steps(2);
+}
+.pixq-nav:hover { background: var(--bg-elev-2); border-color: var(--line); color: var(--fg); }
+.pixq-nav:active { transform: translateY(2px); box-shadow: none; }
+.pixq-nav:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+
+.pixq-nav--active {
+  background: var(--bg-elev-3);
+  color: var(--fg);
+  border-color: var(--line);
+}
+.pixq-nav__bar {
+  position: absolute; left: 2px; top: 6px; bottom: 6px;
+  width: 4px; border-radius: 0;
+  image-rendering: pixelated;
+}
+.pixq-nav__icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--fg-subtle);
+  image-rendering: pixelated;
+}
+.pixq-nav__label {
+  flex: 1; min-width: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.pixq-nav__badge {
+  flex-shrink: 0;
+  font-family: var(--font-pixel); font-size: 8px; line-height: 1;
+  color: var(--fg-subtle); letter-spacing: 0.08em;
+  padding: 3px 5px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-1);
+}
+
+/* CTA variant ("Add module") */
+.pixq-nav--cta {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line);
+  color: var(--fg-subtle);
+  box-shadow: none;
+  font-size: 12px;
+}
+.pixq-nav--cta:hover { background: var(--bg-elev-1); border-color: var(--brand-700); color: var(--fg); }
+
 .pixq-kbd {
   display: inline-flex; align-items: center;
   font-family: var(--font-mono);

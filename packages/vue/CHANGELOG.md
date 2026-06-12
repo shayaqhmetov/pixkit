@@ -1,5 +1,11 @@
 # @pixkit/vue
 
+## 0.2.1
+
+### Patch Changes
+
+- Add PixNavButton — a pixel-art nav/menu item (icon + label, active state with per-item accent, and a `cta` variant with an optional `badge` slot) for use in side menus.
+
 ## 0.2.0
 
 ### Minor Changes
