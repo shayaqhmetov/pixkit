@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type AccordionProps = ViewProps & {
   type?: 'single' | 'multiple';
@@ -71,11 +72,12 @@ export const Accordion: React.FC<AccordionProps> = ({
     return React.cloneElement(item, { children: itemChildren });
   });
 
+  const c = useColors();
   return (
     <AccordionContext.Provider
       value={{ value: currentValue, onValueChange, type, collapsible }}
     >
-      <View style={[styles.accordion, style]} {...rest}>
+      <View style={[styles.accordion, { borderColor: c.line }, style]} {...rest}>
         {contents}
       </View>
     </AccordionContext.Provider>
@@ -87,13 +89,16 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   value,
   style,
   ...rest
-}) => (
-  <AccordionItemContext.Provider value={{ itemValue: value }}>
-    <View style={[styles.item, style]} {...rest}>
-      {children}
-    </View>
-  </AccordionItemContext.Provider>
-);
+}) => {
+  const c = useColors();
+  return (
+    <AccordionItemContext.Provider value={{ itemValue: value }}>
+      <View style={[styles.item, { borderBottomColor: c.line }, style]} {...rest}>
+        {children}
+      </View>
+    </AccordionItemContext.Provider>
+  );
+};
 
 export const AccordionContent: React.FC<AccordionContentProps> = ({
   children,
@@ -101,9 +106,10 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
   style,
   ...rest
 }) => {
+  const c = useColors();
   if (!isActive) return null;
   return (
-    <View style={[styles.content, style]} {...rest}>
+    <View style={[styles.content, { backgroundColor: c.bgElev1 }, style]} {...rest}>
       {children}
     </View>
   );
@@ -120,6 +126,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 }) => {
   const context = React.useContext(AccordionContext);
   const itemCtx = React.useContext(AccordionItemContext);
+  const c = useColors();
 
   const handlePress = () => {
     if (context && itemCtx?.itemValue) {
@@ -128,8 +135,8 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   };
 
   return (
-    <Pressable onPress={handlePress} style={styles.triggerWrapper}>
-      <Text style={[styles.triggerText, style]} {...rest}>
+    <Pressable onPress={handlePress} style={[styles.triggerWrapper, { backgroundColor: c.bgElev2 }]}>
+      <Text style={[{ color: c.fg }, style]} {...rest}>
         {children}
       </Text>
     </Pressable>
@@ -139,22 +146,15 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 const styles = StyleSheet.create({
   accordion: {
     borderWidth: 4,
-    borderColor: '#1a1b26',
   },
   item: {
     borderBottomWidth: 2,
-    borderBottomColor: '#1a1b26',
   },
   content: {
     padding: 8,
-    backgroundColor: '#24283b',
   },
   triggerWrapper: {
     paddingHorizontal: 8,
     paddingVertical: 6,
-    backgroundColor: '#414868',
-  },
-  triggerText: {
-    color: '#e1e3ed',
   },
 });

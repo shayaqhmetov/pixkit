@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { TextInput, StyleSheet, View, Text } from 'react-native';
 import type { TextInputProps } from 'react-native';
-import { tokens } from '@pixkit/tokens';
-import { usePixkitFont } from '../PixkitProvider';
+import { usePixkitFont, useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type TextFieldProps = TextInputProps & {
   placeholder?: string;
@@ -12,6 +12,8 @@ export type TextFieldProps = TextInputProps & {
 export const TextField = React.forwardRef<TextInput, TextFieldProps>(
   ({ style, placeholder, ...props }, ref) => {
     const fontFamilies = usePixkitFont();
+    const c = useColors();
+    const styles = React.useMemo(() => makeStyles(c), [c]);
     return (
       <View>
         {props.label && (
@@ -23,7 +25,7 @@ export const TextField = React.forwardRef<TextInput, TextFieldProps>(
           ref={ref}
           style={[styles.base, { fontFamily: fontFamilies.regular }, style]}
           placeholder={placeholder}
-          placeholderTextColor={tokens.colors.whitePlaceholder}
+          placeholderTextColor={c.fgSubtle}
           {...props}
         />
       </View>
@@ -33,21 +35,22 @@ export const TextField = React.forwardRef<TextInput, TextFieldProps>(
 
 TextField.displayName = 'TextField';
 
-const styles = StyleSheet.create({
-  label: {
-    color: tokens.colors.white,
-    marginBottom: 4,
-    marginLeft: tokens.px,
-    fontSize: tokens.fontSizes.regular,
-  },
-  base: {
-    fontSize: tokens.fontSizes.regular,
-    borderWidth: tokens.border,
-    borderColor: tokens.colors.bg,
-    borderRadius: tokens.radius,
-    backgroundColor: tokens.colors.lightBlue,
-    color: tokens.colors.white,
-    paddingHorizontal: tokens.px * 2,
-    height: 50,
-  },
-});
+const makeStyles = (c: ResolvedColors) =>
+  StyleSheet.create({
+    label: {
+      color: c.fg,
+      marginBottom: 4,
+      marginLeft: 4,
+      fontSize: 16,
+    },
+    base: {
+      fontSize: 16,
+      borderWidth: 4,
+      borderColor: c.line,
+      borderRadius: 8,
+      backgroundColor: c.bgElev1,
+      color: c.fg,
+      paddingHorizontal: 8,
+      height: 50,
+    },
+  });

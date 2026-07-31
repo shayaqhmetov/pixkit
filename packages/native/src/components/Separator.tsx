@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import type { ViewProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type SeparatorOrientation = 'horizontal' | 'vertical';
 
@@ -9,25 +10,25 @@ export type SeparatorProps = ViewProps & {
 };
 
 export const Separator = React.forwardRef<View, SeparatorProps>(
-  ({ style, orientation = 'horizontal', ...props }, ref) => (
-    <View
-      ref={ref}
-      style={[
-        styles.base,
-        orientation === 'horizontal' ? styles.horizontal : styles.vertical,
-        style,
-      ]}
-      {...props}
-    />
-  ),
+  ({ style, orientation = 'horizontal', ...props }, ref) => {
+    const c = useColors();
+    return (
+      <View
+        ref={ref}
+        style={[
+          { backgroundColor: c.line },
+          orientation === 'horizontal' ? styles.horizontal : styles.vertical,
+          style,
+        ]}
+        {...props}
+      />
+    );
+  },
 );
 
 Separator.displayName = 'Separator';
 
 const styles = StyleSheet.create({
-  base: {
-    backgroundColor: '#414868',
-  },
   horizontal: {
     height: 2,
     width: '100%',

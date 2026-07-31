@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Text, StyleSheet, type ViewStyle, TouchableOpacity, View, Image } from 'react-native';
-import { tokens } from '@pixkit/tokens';
-import { usePixkitFont } from '../PixkitProvider';
+import { usePixkitFont, useColors } from '../PixkitProvider';
 
 // Import assets at the top so Metro can resolve them
 
@@ -19,7 +18,6 @@ export type ButtonImageMap = {
     },
     top: any;
     bottom: any;
-    centerColor: string;
 }
 type Variant = 'default' | 'primary' | 'danger';
 
@@ -38,7 +36,6 @@ const BUTTON_IMAGES: Record<Variant, ButtonImageMap> = {
         },
         top: require('../assets/buttons/btn-top.png'),
         bottom: require('../assets/buttons/btn-bottom.png'),
-        centerColor: tokens.colors.success,
     },
     primary: {
         center: require('../assets/buttons/btn-primary-center.png'),
@@ -54,7 +51,6 @@ const BUTTON_IMAGES: Record<Variant, ButtonImageMap> = {
         },
         top: require('../assets/buttons/btn-primary-top.png'),
         bottom: require('../assets/buttons/btn-primary-bottom.png'),
-        centerColor: tokens.colors.primary,
     },
     danger: {
         center: require('../assets/buttons/btn-danger-center.png'),
@@ -70,7 +66,6 @@ const BUTTON_IMAGES: Record<Variant, ButtonImageMap> = {
         },
         top: require('../assets/buttons/btn-danger-top.png'),
         bottom: require('../assets/buttons/btn-danger-bottom.png'),
-        centerColor: tokens.colors.danger,
     }
 }
 
@@ -97,6 +92,9 @@ export function Button({
 }: Props): React.ReactNode {
     const v: Variant = variant ?? 'default';
     const fontFamilies = usePixkitFont();
+    const c = useColors();
+    const centerColor: string =
+        v === 'primary' ? c.primary : v === 'danger' ? c.danger : c.success;
     // Determine tile sizes from assets
     const topSource = Image.resolveAssetSource(BUTTON_IMAGES[v].top);
     const bottomSource = Image.resolveAssetSource(BUTTON_IMAGES[v].bottom);
@@ -154,11 +152,11 @@ export function Button({
                             <View
                                 style={[
                                     styles.centerFill,
-                                    { backgroundColor: BUTTON_IMAGES[v].centerColor },
+                                    { backgroundColor: centerColor },
                                 ]}
                             >
                                 <View pointerEvents="none" style={styles.labelOverlay}>
-                                    <Text style={[styles.text, { fontFamily: fontFamilies.regular }]}>{title}</Text>
+                                    <Text style={[styles.text, { color: c.fg, fontFamily: fontFamilies.regular }]}>{title}</Text>
                                 </View>
                             </View>
                         </View>
@@ -214,9 +212,7 @@ const styles = StyleSheet.create({
     primary: {},
     danger: {},
     text: {
-        color: tokens.colors.white,
-
-        fontSize: tokens.fontSizes.regular,
+        fontSize: 16,
     },
     container: {
         flexDirection: 'row',

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type CheckboxProps = ViewProps & {
   checked?: boolean;
@@ -17,6 +19,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   style,
   ...rest
 }) => {
+  const c = useColors();
+  const styles = React.useMemo(() => makeStyles(c), [c]);
   const [internalChecked, setInternalChecked] = React.useState(!!defaultChecked);
 
   const isControlled = checked !== undefined;
@@ -33,31 +37,30 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <Pressable onPress={toggle} style={[styles.wrapper, style]} {...rest}>
       <View style={[styles.box, value && styles.boxChecked]} />
-      {label != null && (
-        <Text style={styles.label}>{label}</Text>
-      )}
+      {label != null && <Text style={styles.label}>{label}</Text>}
     </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  box: {
-    width: 20,
-    height: 20,
-    borderWidth: 3,
-    borderColor: '#1a1b26',
-    backgroundColor: '#24283b',
-  },
-  boxChecked: {
-    backgroundColor: '#8be9fd',
-  },
-  label: {
-    marginLeft: 8,
-    color: '#e1e3ed',
-  },
-});
+const makeStyles = (c: ResolvedColors) =>
+  StyleSheet.create({
+    wrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+    },
+    box: {
+      width: 20,
+      height: 20,
+      borderWidth: 3,
+      borderColor: c.line,
+      backgroundColor: c.bgElev1,
+    },
+    boxChecked: {
+      backgroundColor: c.accent,
+    },
+    label: {
+      marginLeft: 8,
+      color: c.fg,
+    },
+  });

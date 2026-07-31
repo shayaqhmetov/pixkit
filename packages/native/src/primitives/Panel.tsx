@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { tokens } from '@pixkit/tokens';
+import { useColors } from '../PixkitProvider';
 
-export const Panel: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <View style={styles.panel}>{children}</View>
-);
+export const Panel: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const c = useColors();
+    return <View style={[styles.panel, { backgroundColor: c.bgElev1 }]}>{children}</View>;
+};
 
 const styles = StyleSheet.create({
     panel: {
-        backgroundColor: tokens.colors.lightBlue,
-        padding: tokens.px * 4,
+        padding: 16,
     },
 });

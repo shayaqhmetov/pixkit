@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type NavigationMenuProps = ViewProps;
 export const NavigationMenu: React.FC<NavigationMenuProps> = ({ style, ...props }) => (
@@ -25,20 +26,26 @@ export const NavigationMenuTrigger: React.FC<NavigationMenuTriggerProps> = ({
   style,
   onPress,
   ...props
-}) => (
-  <Pressable onPress={onPress} style={styles.triggerWrapper}>
-    <Text style={[styles.triggerText, style]} {...props}>
-      {children}
-    </Text>
-  </Pressable>
-);
+}) => {
+  const c = useColors();
+  return (
+    <Pressable onPress={onPress} style={[styles.triggerWrapper, { backgroundColor: c.bgElev1 }]}>
+      <Text style={[{ color: c.fg }, style]} {...props}>
+        {children}
+      </Text>
+    </Pressable>
+  );
+};
 
 export type NavigationMenuContentProps = ViewProps;
-export const NavigationMenuContent: React.FC<NavigationMenuContentProps> = ({ style, ...props }) => (
-  <View style={[styles.contentRegion]}>
-    <View style={[styles.content, style]} {...props} />
-  </View>
-);
+export const NavigationMenuContent: React.FC<NavigationMenuContentProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return (
+    <View style={[styles.contentRegion]}>
+      <View style={[styles.content, { borderColor: c.line, backgroundColor: c.bgElev1 }, style]} {...props} />
+    </View>
+  );
+};
 
 export type NavigationMenuLinkProps = TextProps & {
   onPress?: () => void;
@@ -48,13 +55,16 @@ export const NavigationMenuLink: React.FC<NavigationMenuLinkProps> = ({
   style,
   onPress,
   ...props
-}) => (
-  <Pressable onPress={onPress}>
-    <Text style={[styles.link, style]} {...props}>
-      {children}
-    </Text>
-  </Pressable>
-);
+}) => {
+  const c = useColors();
+  return (
+    <Pressable onPress={onPress}>
+      <Text style={[styles.link, { color: c.accent }, style]} {...props}>
+        {children}
+      </Text>
+    </Pressable>
+  );
+};
 
 const styles = StyleSheet.create({
   nav: {
@@ -70,22 +80,15 @@ const styles = StyleSheet.create({
   triggerWrapper: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    backgroundColor: '#24283b',
-  },
-  triggerText: {
-    color: '#e1e3ed',
   },
   contentRegion: {
     marginTop: 8,
   },
   content: {
     borderWidth: 4,
-    borderColor: '#1a1b26',
     padding: 8,
-    backgroundColor: '#24283b',
   },
   link: {
-    color: '#8be9fd',
     textDecorationLine: 'underline',
   },
 });

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type SidebarContextValue = {
   isOpen: boolean;
@@ -45,10 +46,16 @@ export type SidebarProps = ViewProps;
 export const Sidebar: React.FC<SidebarProps> = ({ style, ...props }) => {
   const context = React.useContext(SidebarContext);
   const isOpen = context?.isOpen ?? false;
+  const c = useColors();
 
   if (!isOpen) return null;
 
-  return <View style={[styles.sidebar, style]} {...props} />;
+  return (
+    <View
+      style={[styles.sidebar, { backgroundColor: c.bgElev1, borderRightColor: c.line }, style]}
+      {...props}
+    />
+  );
 };
 
 export type SidebarHeaderProps = ViewProps;
@@ -77,9 +84,10 @@ export const SidebarGroupContent: React.FC<SidebarGroupContentProps> = ({ style,
 );
 
 export type SidebarGroupLabelProps = TextProps;
-export const SidebarGroupLabel: React.FC<SidebarGroupLabelProps> = ({ style, ...props }) => (
-  <Text style={[styles.groupLabel, style]} {...props} />
-);
+export const SidebarGroupLabel: React.FC<SidebarGroupLabelProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <Text style={[styles.groupLabel, { color: c.fg }, style]} {...props} />;
+};
 
 export type SidebarMenuProps = ViewProps;
 export const SidebarMenu: React.FC<SidebarMenuProps> = ({ style, ...props }) => (
@@ -97,17 +105,21 @@ export const SidebarMenuButton: React.FC<SidebarMenuButtonProps> = ({
   style,
   onPress,
   ...props
-}) => (
-  <Pressable onPress={onPress} style={styles.menuButtonWrapper}>
-    <Text style={[styles.menuButton, style]} {...props}>
-      {children}
-    </Text>
-  </Pressable>
-);
+}) => {
+  const c = useColors();
+  return (
+    <Pressable onPress={onPress} style={styles.menuButtonWrapper}>
+      <Text style={[{ color: c.fg }, style]} {...props}>
+        {children}
+      </Text>
+    </Pressable>
+  );
+};
 
 export type SidebarTriggerProps = ViewProps & { onPress?: () => void };
 export const SidebarTrigger: React.FC<SidebarTriggerProps> = ({ style, onPress, ...props }) => {
   const context = React.useContext(SidebarContext);
+  const c = useColors();
 
   const handlePress = () => {
     onPress?.();
@@ -115,8 +127,12 @@ export const SidebarTrigger: React.FC<SidebarTriggerProps> = ({ style, onPress, 
   };
 
   return (
-    <Pressable onPress={handlePress} style={[styles.triggerWrapper, style]} {...props}>
-      <Text style={styles.triggerIcon}>☰</Text>
+    <Pressable
+      onPress={handlePress}
+      style={[styles.triggerWrapper, { backgroundColor: c.bgElev1, borderColor: c.line }, style]}
+      {...props}
+    >
+      <Text style={[styles.triggerIcon, { color: c.fg }]}>☰</Text>
     </Pressable>
   );
 };
@@ -127,9 +143,7 @@ const styles = StyleSheet.create({
   },
   sidebar: {
     width: 260,
-    backgroundColor: '#24283b',
     borderRightWidth: 4,
-    borderRightColor: '#1a1b26',
     padding: 12,
   },
   header: {
@@ -146,7 +160,6 @@ const styles = StyleSheet.create({
   },
   groupContent: {},
   groupLabel: {
-    color: '#e1e3ed',
     marginBottom: 4,
   },
   menu: {},
@@ -154,17 +167,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   menuButtonWrapper: {},
-  menuButton: {
-    color: '#e1e3ed',
-  },
   triggerWrapper: {
     padding: 8,
-    backgroundColor: '#24283b',
     borderWidth: 3,
-    borderColor: '#1a1b26',
   },
   triggerIcon: {
-    color: '#e1e3ed',
     fontSize: 16,
   },
 });

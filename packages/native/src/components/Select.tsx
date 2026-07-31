@@ -8,8 +8,8 @@ import {
     FlatList,
     SafeAreaView,
 } from 'react-native';
-import { tokens } from '@pixkit/tokens';
-import { usePixkitFont } from '../PixkitProvider';
+import { usePixkitFont, useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type SelectOption = {
     label: string;
@@ -40,6 +40,8 @@ export function Select({
 }: SelectProps) {
     const [open, setOpen] = React.useState(false);
     const fontFamilies = usePixkitFont();
+    const c = useColors();
+    const styles = React.useMemo(() => makeStyles(c), [c]);
 
     const selectedOption = options.find((o) => o.value === value);
     const displayLabel = selectedOption ? (selectedOption.triggerLabel ?? selectedOption.label) : placeholder;
@@ -143,21 +145,21 @@ export function Select({
     );
 }
 
-const SHEET_RADIUS = tokens.radius * 3;
+const SHEET_RADIUS = 24;
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ResolvedColors) => StyleSheet.create({
     label: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         marginBottom: 4,
-        marginLeft: tokens.px,
+        marginLeft: 4,
     },
     trigger: {
         minHeight: 50,
         borderWidth: 1,
-        borderColor: `${tokens.colors.accent}40`,
+        borderColor: `${c.accent}40`,
         borderRadius: 10,
-        backgroundColor: tokens.colors.lightBlue,
+        backgroundColor: c.bgElev1,
         paddingHorizontal: 14,
         paddingVertical: 8,
         flexDirection: 'row',
@@ -177,27 +179,27 @@ const styles = StyleSheet.create({
         gap: 0,
     },
     triggerError: {
-        borderColor: tokens.colors.danger,
+        borderColor: c.danger,
     },
     triggerText: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         flex: 1,
     },
     triggerTextCircle: {
         flex: 0,
-        fontSize: tokens.fontSizes.large,
+        fontSize: 20,
         textAlign: 'center',
     },
     placeholderText: {
-        color: tokens.colors.whitePlaceholder,
+        color: c.fgSubtle,
     },
     chevron: {
-        color: tokens.colors.muted,
+        color: c.fgMuted,
         fontSize: 10,
     },
     chevronOpen: {
-        color: tokens.colors.accent,
+        color: c.accent,
     },
     backdrop: {
         flex: 1,
@@ -205,7 +207,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     safeArea: {
-        backgroundColor: tokens.colors.lightBlue,
+        backgroundColor: c.bgElev1,
         borderTopLeftRadius: SHEET_RADIUS,
         borderTopRightRadius: SHEET_RADIUS,
         maxHeight: '65%',
@@ -218,15 +220,15 @@ const styles = StyleSheet.create({
         width: 36,
         height: 4,
         borderRadius: 2,
-        backgroundColor: tokens.colors.muted,
+        backgroundColor: c.fgMuted,
         alignSelf: 'center',
         marginTop: 10,
         marginBottom: 16,
         opacity: 0.5,
     },
     sheetTitle: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         marginBottom: 12,
         textAlign: 'center',
     },
@@ -235,33 +237,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
         paddingHorizontal: 12,
-        borderRadius: tokens.radius,
+        borderRadius: 8,
         marginBottom: 2,
     },
     optionLast: {
         marginBottom: 0,
     },
     optionSelected: {
-        backgroundColor: `${tokens.colors.primary}60`,
+        backgroundColor: `${c.brand600}60`,
     },
     optionText: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         flex: 1,
     },
     optionTextSelected: {
-        color: tokens.colors.accent,
+        color: c.accent,
     },
     checkmarkWrap: {
         width: 24,
         height: 24,
         borderRadius: 12,
-        backgroundColor: `${tokens.colors.accent}25`,
+        backgroundColor: `${c.accent}25`,
         alignItems: 'center',
         justifyContent: 'center',
     },
     checkmark: {
-        color: tokens.colors.accent,
+        color: c.accent,
         fontSize: 13,
         fontWeight: '700',
     },

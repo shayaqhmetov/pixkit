@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type SwitchProps = ViewProps & {
   checked?: boolean;
@@ -17,6 +19,8 @@ export const Switch: React.FC<SwitchProps> = ({
   style,
   ...rest
 }) => {
+  const c = useColors();
+  const styles = React.useMemo(() => makeStyles(c), [c]);
   const [internalChecked, setInternalChecked] = React.useState(!!defaultChecked);
   const isControlled = checked !== undefined;
   const value = isControlled ? checked : internalChecked;
@@ -39,36 +43,37 @@ export const Switch: React.FC<SwitchProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  wrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  track: {
-    width: 40,
-    height: 22,
-    borderRadius: 4,
-    borderWidth: 3,
-    borderColor: '#1a1b26',
-    backgroundColor: '#24283b',
-    justifyContent: 'center',
-    paddingHorizontal: 2,
-  },
-  trackOn: {
-    backgroundColor: '#8be9fd',
-  },
-  thumb: {
-    width: 14,
-    height: 14,
-    borderRadius: 2,
-    backgroundColor: '#e1e3ed',
-    alignSelf: 'flex-start',
-  },
-  thumbOn: {
-    alignSelf: 'flex-end',
-  },
-  label: {
-    marginLeft: 8,
-    color: '#e1e3ed',
-  },
-});
+const makeStyles = (c: ResolvedColors) =>
+  StyleSheet.create({
+    wrapper: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    track: {
+      width: 40,
+      height: 22,
+      borderRadius: 4,
+      borderWidth: 3,
+      borderColor: c.line,
+      backgroundColor: c.bgElev1,
+      justifyContent: 'center',
+      paddingHorizontal: 2,
+    },
+    trackOn: {
+      backgroundColor: c.accent,
+    },
+    thumb: {
+      width: 14,
+      height: 14,
+      borderRadius: 2,
+      backgroundColor: c.fg,
+      alignSelf: 'flex-start',
+    },
+    thumbOn: {
+      alignSelf: 'flex-end',
+    },
+    label: {
+      marginLeft: 8,
+      color: c.fg,
+    },
+  });

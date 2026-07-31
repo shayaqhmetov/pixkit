@@ -1,3 +1,5 @@
+// Legacy flat token set (kept for backward compatibility while @pixkit/native
+// migrates its components onto the themed Qurbaqa tokens below).
 export const tokens = {
     px: 4,
     radius: 8,
@@ -27,3 +29,17 @@ export const tokens = {
 } as const;
 
 export type PixTokens = typeof tokens;
+
+// Canonical Qurbaqa theme — semantic tokens shared by web (@pixkit/vue CSS) and
+// native (React Native hex). Generated from src/qurbaqa.source.mjs (OKLCH).
+export {
+    qurbaqaColors,
+    qurbaqaRadii,
+    qurbaqaShadows,
+    qurbaqaFonts,
+} from './generated/qurbaqa';
+export type {
+    QurbaqaColorScheme,
+    QurbaqaColors,
+    QurbaqaColorToken,
+} from './generated/qurbaqa';

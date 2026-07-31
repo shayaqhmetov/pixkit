@@ -9,8 +9,8 @@ import {
     SafeAreaView,
     TextInput,
 } from 'react-native';
-import { tokens } from '@pixkit/tokens';
-import { usePixkitFont } from '../PixkitProvider';
+import { usePixkitFont, useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type SearchSelectOption = {
     label: string;
@@ -70,6 +70,8 @@ export function SearchSelect({
     const [open, setOpen] = React.useState(false);
     const [query, setQuery] = React.useState('');
     const fontFamilies = usePixkitFont();
+    const c = useColors();
+    const styles = React.useMemo(() => makeStyles(c), [c]);
 
     // Flatten all options across sections (for trigger label + search).
     const allOptions = React.useMemo(
@@ -203,7 +205,7 @@ export function SearchSelect({
                             <TextInput
                                 style={[styles.searchInput, { fontFamily: fontFamilies.regular }]}
                                 placeholder={searchPlaceholder}
-                                placeholderTextColor={tokens.colors.whitePlaceholder}
+                                placeholderTextColor={c.fgSubtle}
                                 value={query}
                                 onChangeText={setQuery}
                                 autoCorrect={false}
@@ -295,21 +297,21 @@ export function SearchSelect({
     );
 }
 
-const SHEET_RADIUS = tokens.radius * 3;
+const SHEET_RADIUS = 24;
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ResolvedColors) => StyleSheet.create({
     label: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         marginBottom: 4,
-        marginLeft: tokens.px,
+        marginLeft: 4,
     },
     trigger: {
         minHeight: 50,
         borderWidth: 1,
-        borderColor: `${tokens.colors.accent}40`,
+        borderColor: `${c.accent}40`,
         borderRadius: 10,
-        backgroundColor: tokens.colors.lightBlue,
+        backgroundColor: c.bgElev1,
         paddingHorizontal: 14,
         paddingVertical: 8,
         flexDirection: 'row',
@@ -318,22 +320,22 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     triggerError: {
-        borderColor: tokens.colors.danger,
+        borderColor: c.danger,
     },
     triggerText: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         flex: 1,
     },
     placeholderText: {
-        color: tokens.colors.whitePlaceholder,
+        color: c.fgSubtle,
     },
     chevron: {
-        color: tokens.colors.muted,
+        color: c.fgMuted,
         fontSize: 10,
     },
     chevronOpen: {
-        color: tokens.colors.accent,
+        color: c.accent,
     },
     backdrop: {
         flex: 1,
@@ -341,7 +343,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     safeArea: {
-        backgroundColor: tokens.colors.lightBlue,
+        backgroundColor: c.bgElev1,
         borderTopLeftRadius: SHEET_RADIUS,
         borderTopRightRadius: SHEET_RADIUS,
         maxHeight: '80%',
@@ -354,37 +356,37 @@ const styles = StyleSheet.create({
         width: 36,
         height: 4,
         borderRadius: 2,
-        backgroundColor: tokens.colors.muted,
+        backgroundColor: c.fgMuted,
         alignSelf: 'center',
         marginTop: 10,
         marginBottom: 16,
         opacity: 0.5,
     },
     sheetTitle: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         marginBottom: 12,
         textAlign: 'center',
     },
     searchInput: {
         minHeight: 44,
         borderWidth: 1,
-        borderColor: `${tokens.colors.accent}40`,
+        borderColor: `${c.accent}40`,
         borderRadius: 10,
-        backgroundColor: tokens.colors.bg,
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        backgroundColor: c.bg,
+        color: c.fg,
+        fontSize: 16,
         paddingHorizontal: 14,
         paddingVertical: 8,
         marginBottom: 12,
     },
     sectionHeader: {
-        color: tokens.colors.accent,
-        fontSize: tokens.fontSizes.small,
+        color: c.accent,
+        fontSize: 12,
         textTransform: 'uppercase',
         marginTop: 8,
         marginBottom: 6,
-        marginLeft: tokens.px,
+        marginLeft: 4,
         letterSpacing: 1,
     },
     option: {
@@ -392,35 +394,35 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
         paddingHorizontal: 12,
-        borderRadius: tokens.radius,
+        borderRadius: 8,
         marginBottom: 2,
         gap: 8,
     },
     optionSelected: {
-        backgroundColor: `${tokens.colors.primary}60`,
+        backgroundColor: `${c.brand600}60`,
     },
     optionText: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
         flex: 1,
     },
     optionTextSelected: {
-        color: tokens.colors.accent,
+        color: c.accent,
     },
     optionHint: {
-        color: tokens.colors.muted,
-        fontSize: tokens.fontSizes.small,
+        color: c.fgMuted,
+        fontSize: 12,
     },
     checkmarkWrap: {
         width: 24,
         height: 24,
         borderRadius: 12,
-        backgroundColor: `${tokens.colors.accent}25`,
+        backgroundColor: `${c.accent}25`,
         alignItems: 'center',
         justifyContent: 'center',
     },
     checkmark: {
-        color: tokens.colors.accent,
+        color: c.accent,
         fontSize: 13,
         fontWeight: '700',
     },
@@ -429,7 +431,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     emptyText: {
-        color: tokens.colors.whitePlaceholder,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fgSubtle,
+        fontSize: 16,
     },
 });

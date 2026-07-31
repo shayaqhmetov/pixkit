@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Modal, View, Text, StyleSheet, Pressable } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type DialogProps = ViewProps & {
   open?: boolean;
@@ -66,12 +67,13 @@ const DialogOverlay: React.FC<DialogOverlayProps> = ({ style, ...props }) => {
 export type DialogContentProps = ViewProps;
 const DialogContent: React.FC<DialogContentProps> = ({ style, ...props }) => {
   const ctx = React.useContext(DialogContext);
+  const c = useColors();
   if (!ctx?.open) return null;
 
   return (
     <Modal transparent visible={ctx.open} animationType="fade">
       <View style={styles.centered}>
-        <View style={[styles.content, style]} {...props} />
+        <View style={[styles.content, { backgroundColor: c.bgElev1, borderColor: c.line }, style]} {...props} />
       </View>
     </Modal>
   );
@@ -83,14 +85,16 @@ const DialogHeader: React.FC<DialogHeaderProps> = ({ style, ...props }) => (
 );
 
 export type DialogTitleProps = TextProps;
-const DialogTitle: React.FC<DialogTitleProps> = ({ style, ...props }) => (
-  <Text style={[styles.title, style]} {...props} />
-);
+const DialogTitle: React.FC<DialogTitleProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <Text style={[styles.title, { color: c.fg }, style]} {...props} />;
+};
 
 export type DialogDescriptionProps = TextProps;
-const DialogDescription: React.FC<DialogDescriptionProps> = ({ style, ...props }) => (
-  <Text style={[styles.description, style]} {...props} />
-);
+const DialogDescription: React.FC<DialogDescriptionProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <Text style={[styles.description, { color: c.fgMuted }, style]} {...props} />;
+};
 
 export type DialogFooterProps = ViewProps;
 const DialogFooter: React.FC<DialogFooterProps> = ({ style, ...props }) => (
@@ -124,9 +128,7 @@ const styles = StyleSheet.create({
   content: {
     minWidth: 260,
     maxWidth: '80%',
-    backgroundColor: '#24283b',
     borderWidth: 4,
-    borderColor: '#1a1b26',
     padding: 16,
   },
   header: {
@@ -135,11 +137,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#e1e3ed',
   },
   description: {
     fontSize: 14,
-    color: '#a9b1d6',
   },
   footer: {
     marginTop: 12,

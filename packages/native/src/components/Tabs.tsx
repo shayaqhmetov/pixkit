@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type TabsContextValue = {
   value: string;
@@ -29,6 +30,7 @@ export const Tabs: React.FC<TabsProps> = ({
   defaultValue,
   ...rest
 }) => {
+  const c = useColors();
   const [currentValue, setCurrentValue] = React.useState(defaultValue);
 
   React.useEffect(() => {
@@ -51,7 +53,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   return (
     <TabsProvider value={currentValue} onValueChange={onValueChange}>
-      <View style={[styles.tabs, style]} {...rest}>
+      <View style={[styles.tabs, { borderColor: c.line }, style]} {...rest}>
         {tabList}
         {targetContent}
       </View>
@@ -61,9 +63,10 @@ export const Tabs: React.FC<TabsProps> = ({
 
 export type TabsListProps = ViewProps;
 
-export const TabsList: React.FC<TabsListProps> = ({ style, ...props }) => (
-  <View style={[styles.list, style]} {...props} />
-);
+export const TabsList: React.FC<TabsListProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <View style={[styles.list, { borderBottomColor: c.line }, style]} {...props} />;
+};
 
 export type TabsContentProps = ViewProps & {
   value: string;
@@ -83,6 +86,7 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
   value,
   ...props
 }) => {
+  const c = useColors();
   const context = React.useContext(TabsContext);
   const isActive = context?.value === value;
 
@@ -91,8 +95,14 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
   };
 
   return (
-    <Pressable onPress={handlePress} style={[styles.trigger, isActive && styles.triggerActive]}>
-      <Text style={[styles.triggerText, style]} {...props}>
+    <Pressable
+      onPress={handlePress}
+      style={[
+        styles.trigger,
+        { borderRightColor: c.line, backgroundColor: isActive ? c.accent : c.bgElev1 },
+      ]}
+    >
+      <Text style={[{ color: isActive ? c.bg : c.fg }, style]} {...props}>
         {children}
       </Text>
     </Pressable>
@@ -102,12 +112,10 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
 const styles = StyleSheet.create({
   tabs: {
     borderWidth: 4,
-    borderColor: '#1a1b26',
   },
   list: {
     flexDirection: 'row',
     borderBottomWidth: 2,
-    borderBottomColor: '#1a1b26',
   },
   content: {
     padding: 8,
@@ -116,13 +124,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRightWidth: 2,
-    borderRightColor: '#1a1b26',
-    backgroundColor: '#24283b',
-  },
-  triggerActive: {
-    backgroundColor: '#8be9fd',
-  },
-  triggerText: {
-    color: '#e1e3ed',
   },
 });

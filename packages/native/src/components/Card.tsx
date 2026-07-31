@@ -1,11 +1,18 @@
 import * as React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import type { ViewProps, TextProps } from 'react-native';
+import { useColors } from '../PixkitProvider';
 
 export type CardProps = ViewProps;
-const CardRoot: React.FC<CardProps> = ({ style, ...props }) => (
-  <View style={[styles.card, style]} {...props} />
-);
+const CardRoot: React.FC<CardProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return (
+    <View
+      style={[{ backgroundColor: c.bgElev1, borderWidth: 4, borderColor: c.line, padding: 12 }, style]}
+      {...props}
+    />
+  );
+};
 
 export type CardHeaderProps = ViewProps;
 const CardHeader: React.FC<CardHeaderProps> = ({ style, ...props }) => (
@@ -13,14 +20,16 @@ const CardHeader: React.FC<CardHeaderProps> = ({ style, ...props }) => (
 );
 
 export type CardTitleProps = TextProps;
-const CardTitle: React.FC<CardTitleProps> = ({ style, ...props }) => (
-  <Text style={[styles.title, style]} {...props} />
-);
+const CardTitle: React.FC<CardTitleProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <Text style={[styles.title, { color: c.fg }, style]} {...props} />;
+};
 
 export type CardDescriptionProps = TextProps;
-const CardDescription: React.FC<CardDescriptionProps> = ({ style, ...props }) => (
-  <Text style={[styles.description, style]} {...props} />
-);
+const CardDescription: React.FC<CardDescriptionProps> = ({ style, ...props }) => {
+  const c = useColors();
+  return <Text style={[styles.description, { color: c.fgMuted }, style]} {...props} />;
+};
 
 export type CardContentProps = ViewProps;
 const CardContent: React.FC<CardContentProps> = ({ style, ...props }) => (
@@ -41,29 +50,9 @@ export const Card = Object.assign(CardRoot, {
 });
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#24283b',
-    borderWidth: 4,
-    borderColor: '#1a1b26',
-    padding: 12,
-  },
-  header: {
-    marginBottom: 8,
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#e1e3ed',
-  },
-  description: {
-    fontSize: 14,
-    color: '#a9b1d6',
-  },
-  content: {
-    marginTop: 4,
-    marginBottom: 4,
-  },
-  footer: {
-    marginTop: 8,
-  },
+  header: { marginBottom: 8 },
+  title: { fontSize: 16, fontWeight: 'bold' },
+  description: { fontSize: 14 },
+  content: { marginTop: 4, marginBottom: 4 },
+  footer: { marginTop: 8 },
 });

@@ -6,8 +6,8 @@ import {
     TouchableOpacity,
     Image,
 } from 'react-native';
-import { tokens } from '@pixkit/tokens';
-import { usePixkitFont } from '../PixkitProvider';
+import { usePixkitFont, useColors } from '../PixkitProvider';
+import type { ResolvedColors } from '../theme';
 
 export type ListCardProps = {
     title: string;
@@ -29,6 +29,8 @@ export function ListCard({
     onPress,
 }: ListCardProps) {
     const fontFamilies = usePixkitFont();
+    const c = useColors();
+    const styles = React.useMemo(() => makeStyles(c), [c]);
 
     return (
         <TouchableOpacity
@@ -100,66 +102,66 @@ export function ListCard({
     );
 }
 
-const styles = StyleSheet.create({
+const makeStyles = (c: ResolvedColors) => StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: tokens.colors.lightBlue,
-        borderRadius: tokens.radius,
-        borderWidth: tokens.border,
-        borderColor: tokens.colors.bg,
-        padding: tokens.px * 3,
-        marginBottom: tokens.px * 2,
+        backgroundColor: c.bgElev1,
+        borderRadius: 8,
+        borderWidth: 4,
+        borderColor: c.line,
+        padding: 12,
+        marginBottom: 8,
     },
     image: {
         width: 44,
         height: 44,
-        borderRadius: tokens.radius,
-        marginRight: tokens.px * 3,
+        borderRadius: 8,
+        marginRight: 12,
     },
     imagePlaceholder: {
         width: 44,
         height: 44,
-        borderRadius: tokens.radius,
-        backgroundColor: tokens.colors.primary,
-        marginRight: tokens.px * 3,
+        borderRadius: 8,
+        backgroundColor: c.primary,
+        marginRight: 12,
         justifyContent: 'center',
         alignItems: 'center',
     },
     imagePlaceholderText: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.large,
+        color: c.fg,
+        fontSize: 20,
     },
     content: {
         flex: 1,
         gap: 2,
     },
     title: {
-        color: tokens.colors.white,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fg,
+        fontSize: 16,
     },
     subtitle: {
-        color: tokens.colors.accent,
-        fontSize: tokens.fontSizes.small,
+        color: c.accent,
+        fontSize: 12,
     },
     description: {
-        color: tokens.colors.muted,
-        fontSize: tokens.fontSizes.small,
+        color: c.fgMuted,
+        fontSize: 12,
     },
     actions: {
         flexDirection: 'row',
-        gap: tokens.px * 2,
-        marginLeft: tokens.px * 2,
+        gap: 8,
+        marginLeft: 8,
     },
     actionButton: {
-        padding: tokens.px,
+        padding: 4,
     },
     editIcon: {
-        color: tokens.colors.muted,
-        fontSize: tokens.fontSizes.regular,
+        color: c.fgMuted,
+        fontSize: 16,
     },
     deleteIcon: {
-        color: tokens.colors.danger,
-        fontSize: tokens.fontSizes.regular,
+        color: c.danger,
+        fontSize: 16,
     },
 });
